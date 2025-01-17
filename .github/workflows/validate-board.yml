@@ -1,0 +1,51 @@
+name: Validate Board Data
+
+on:
+  pull_request:
+    paths:
+      - 'src/data/boards/*.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Validate board data
+        run: npm run validate-boards
+        
+      - name: Check image URLs
+        run: npm run check-images
+        
+      - name: Comment on PR
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const validationResults = JSON.parse(fs.readFileSync('validation-results.json', 'utf8'));
+            
+            let comment = '## Board Validation Results\n\n';
+            
+            if (validationResults.valid) {
+              comment += '✅ All board data is valid!\n\n';
+            } else {
+              comment += '❌ Found validation errors:\n\n';
+              validationResults.errors.forEach(error => {
+                comment += `- ${error}\n`;
+              });
+            }
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
