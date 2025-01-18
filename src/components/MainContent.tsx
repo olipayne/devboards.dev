@@ -1,6 +1,6 @@
-import { Board } from '@/types/board';
-import { BoardCard } from './BoardCard';
-import { FilterState, filterBoards } from '@/utils/filters';
+import { Board } from "@/types/board";
+import { FilterState, filterBoards } from "@/utils/filters";
+import { BoardCard } from "@/components/BoardCard";
 
 interface MainContentProps {
   boards: Board[];
@@ -8,35 +8,32 @@ interface MainContentProps {
 }
 
 export function MainContent({ boards = [], filters }: MainContentProps) {
-  const filteredBoards = filterBoards(boards || [], filters);
-  
-  if (!boards?.length) {
+  const filteredBoards = filterBoards(boards, filters);
+
+  if (boards.length === 0) {
     return (
-      <div className="flex-1 flex items-center justify-center min-h-[400px]">
-        <p className="text-lg text-muted-foreground">
-          Loading boards...
-        </p>
+      <div className="flex items-center justify-center h-96 text-muted-foreground dark:text-muted-foreground-dark">
+        Loading boards...
       </div>
     );
   }
-  
+
   if (filteredBoards.length === 0) {
     return (
-      <div className="flex-1 flex items-center justify-center min-h-[400px]">
-        <p className="text-lg text-muted-foreground">
-          No boards match your current filters
-        </p>
+      <div className="flex items-center justify-center h-96 text-muted-foreground dark:text-muted-foreground-dark">
+        No boards match your filters. Try adjusting your criteria.
       </div>
     );
   }
 
   return (
-    <div className="flex-1">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-        {filteredBoards.map((board) => (
-          <BoardCard key={`${board.manufacturer}-${board.name}`} board={board} />
-        ))}
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {filteredBoards.map((board) => (
+        <BoardCard 
+          key={`${board.manufacturer}-${board.name}`} 
+          board={board} 
+        />
+      ))}
     </div>
   );
 }

@@ -145,10 +145,10 @@ export function FilterPanel({ filters, setFilters, onReset }: FilterPanelProps) 
 
   return (
     <div className="w-full lg:w-64 shrink-0">
-      {/* Active Filters */}
-      <div className="space-y-4 mb-6">
+      {/* Header */}
+      <div className="pb-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-medium text-gray-900">Filters</h2>
+          <h2 className="text-sm font-medium text-muted-foreground">Filters</h2>
           {activeFilters.length > 0 && (
             <Button
               variant="ghost"
@@ -161,23 +161,26 @@ export function FilterPanel({ filters, setFilters, onReset }: FilterPanelProps) 
           )}
         </div>
 
+        {/* Active Filters */}
         {activeFilters.length > 0 && (
-          <ScrollArea className="w-full" style={{ maxHeight: activeFilters.length > 6 ? '160px' : 'auto' }}>
-            <div className="flex flex-wrap gap-1.5 pr-4">
-              {activeFilters.map(({ category, id, label }) => (
-                <Button
-                  key={`${category}-${id}`}
-                  variant="secondary"
-                  size="sm"
-                  className="h-7 pl-2 pr-1 text-sm group shrink-0"
-                  onClick={() => handleFilterClick(category, id)}
-                >
-                  <span className="truncate">{label}</span>
-                  <X className="w-4 h-4 ml-1 shrink-0 group-hover:text-destructive" />
-                </Button>
-              ))}
-            </div>
-          </ScrollArea>
+          <div className="mt-4">
+            <ScrollArea className="w-full" style={{ maxHeight: activeFilters.length > 6 ? '160px' : 'auto' }}>
+              <div className="flex flex-wrap gap-1.5 pr-4">
+                {activeFilters.map(({ category, id, label }) => (
+                  <Button
+                    key={`${category}-${id}`}
+                    variant="secondary"
+                    size="sm"
+                    className="h-7 pl-2 pr-1 text-sm group shrink-0"
+                    onClick={() => handleFilterClick(category, id)}
+                  >
+                    <span className="truncate">{label}</span>
+                    <X className="w-4 h-4 ml-1 shrink-0 group-hover:text-destructive" />
+                  </Button>
+                ))}
+              </div>
+            </ScrollArea>
+          </div>
         )}
       </div>
 
@@ -186,7 +189,7 @@ export function FilterPanel({ filters, setFilters, onReset }: FilterPanelProps) 
         <div className="space-y-6 pr-4">
           {Object.entries(FILTER_CATEGORIES).map(([category, { label, options }]) => (
             <div key={category} className="space-y-3">
-              <h3 className="text-sm font-medium text-gray-900" id={`${category}-heading`}>
+              <h3 className="text-sm font-medium" id={`${category}-heading`}>
                 {label}
               </h3>
               <div 
