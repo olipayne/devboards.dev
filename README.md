@@ -1,116 +1,179 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Development Board Database
 
-# ESP32 Development Board Database
-
-A comprehensive database of ESP32 and similar development boards, helping makers and developers find the perfect board for their projects. The website is built with Next.js and is statically generated, making it fast and easy to deploy.
+A comprehensive database of development boards (ESP32, RP2040, SAMD21, etc.), helping makers and developers find the perfect board for their projects. The website is built with Next.js and is statically generated, making it fast and easy to deploy.
 
 ## Features
 
-- 🔍 Filter boards by features (WiFi, Bluetooth, sensors, etc.)
-- 💰 Price range filtering
+- 🔍 Advanced filtering by:
+  - CPU type (ESP32, RP2040, etc.)
+  - USB connector type
+  - Connectivity (WiFi, Bluetooth, LoRa, etc.)
+  - Sensors (Temperature, IMU, etc.)
+  - Power options (Battery, Solar)
+  - Display options
+  - Interfaces (I2C, SPI, etc.)
 - 🖼️ Visual board gallery with detailed specifications
-- 🚀 Fast, static site generation
+- 🚀 Static site generation for fast loading
 - 📱 Responsive design
-- 🤝 Community-driven board database
+- ♿ Accessible UI with ARIA support
+- 🌐 Open source and community-driven
 
-## Contributing
-
-### Adding a New Board
+## Contributing Boards
 
 1. Fork this repository
-2. Create a new JSON file in `src/data/boards/` with your board's information
-3. Name the file using the format: `[board-name].json` (use kebab-case)
+2. Create a new JSON file in `src/data/boards/`
+3. Name the file using the format: `[Manufacturer]_[BoardName].json` (e.g., `Espressif_ESP32-DevKitC.json`)
 4. Fill out the board information following this template:
 
 ```json
 {
-  "id": "unique-board-id",
   "name": "Board Name",
-  "brand": "Manufacturer",
-  "description": "Brief description of the board",
+  "manufacturer": "Manufacturer Name",
   "imageUrl": "https://example.com/board-image.jpg",
   "purchaseUrl": "https://example.com/purchase",
+  "releaseDate": "2023-01-01",
   "price": 29.99,
-  
-  // Technical Specifications
-  "cpuArchitecture": "Xtensa LX7",
-  "usbConnectorType": "USB-C",
-  
-  // Features (true/false)
-  "wifi": true,
-  "bluetooth": true,
-  "openSource": true,
-  // ... other features
+
+  "dimensions": {
+    "length": 65.0,
+    "width": 30.0,
+    "height": 8.0
+  },
+
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": "Xtensa LX7",
+    "frequency": 240
+  },
+
+  "memory": {
+    "flash": 4,
+    "ram": 2
+  },
+
+  "gpio": {
+    "gpio": 45,
+    "analog": 20,
+    "pwm": 8
+  },
+
+  "usbConnectorType": "Type-C",
+
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": true,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+
+  "urls": {
+    "product": "https://example.com/product",
+    "documentation": "https://example.com/docs",
+    "github": "https://github.com/manufacturer/board",
+    "purchase": "https://example.com/buy"
+  },
+
+  "openSource": true
 }
 ```
-
-5. Create a Pull Request
 
 ### Validation
 
 All board submissions are automatically validated for:
-- Correct JSON format
-- Required fields
-- Valid image URLs
-- Duplicate board IDs
 
-The GitHub Actions workflow will check your submission and report any issues.
+- Correct JSON format and schema
+- Required fields presence
+- Valid URLs and image links
+- Proper data types and ranges
+- Consistent naming conventions
 
-## Getting Started
-
-First, run the development server:
+Run validation locally:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run validate-boards
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Development
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/devboards.git
 ```
 
 2. Install dependencies:
+
 ```bash
 cd devboards
 npm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Shadcn/ui](https://ui.shadcn.com/) - UI components
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Zod](https://zod.dev/) - Schema validation
 
 ## License
 
-MIT License - feel free to use this project for your own board database!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Thanks to all [contributors](https://github.com/olipayne/devboards.dev/graphs/contributors)
+- Board manufacturers for creating amazing hardware
+- Open source community for inspiration and support
