@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -27,13 +28,13 @@ import {
 } from "@/components/ui/collapsible";
 import { FilterState } from "@/utils/filters";
 import { UsbConnectorType } from "@/types/board";
-import { useState, useMemo } from "react";
+import { Board } from "@/types/board"; // Import Board type
 
 interface FilterPanelProps {
   filters: FilterState;
   setFilters: (filters: FilterState) => void;
   onReset?: () => void;
-  boards: any[]; // Add boards prop to calculate counts
+  boards: Board[]; // Updated type to Board[]
 }
 
 interface FilterOption {
@@ -160,12 +161,6 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
   };
 
   const getFilterCount = (category: string, optionId: string): number => {
-    // Create a new filter state with just this option selected
-    const testFilters = {
-      ...Object.keys(filters).reduce((acc, key) => ({ ...acc, [key]: [] }), {}),
-      [category]: [optionId]
-    };
-    
     // Count how many boards would match with just this filter
     return boards.filter(board => {
       if (category === 'cpu') {
@@ -175,22 +170,22 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
         return board?.interfaces?.usb?.type === optionId;
       }
       if (category === 'connectivity') {
-        return board?.connectivity?.[optionId];
+        return board?.connectivity && optionId in board.connectivity && board.connectivity[optionId as keyof typeof board.connectivity];
       }
       if (category === 'sensors') {
-        return board?.sensors?.[optionId];
+        return board?.sensors && optionId in board.sensors && board.sensors[optionId as keyof typeof board.sensors];
       }
       if (category === 'power') {
         if (optionId === 'battery') return board?.power?.battery?.supported;
         if (optionId === 'charging') return board?.power?.battery?.charging;
         if (optionId === 'monitoring') return board?.power?.battery?.monitoring;
-        return board?.power?.[optionId];
+        return board?.power && optionId in board.power && board.power[optionId as keyof typeof board.power];
       }
       if (category === 'display') {
-        return board?.display?.[optionId];
+        return board?.display && optionId in board.display && board.display[optionId as keyof typeof board.display];
       }
       if (category === 'interfaces') {
-        return board?.interfaces?.[optionId];
+        return board?.interfaces && optionId in board.interfaces && board.interfaces[optionId as keyof typeof board.interfaces];
       }
       return false;
     }).length;
@@ -224,7 +219,7 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
   };
 
   const activeFilters = getActiveFilters();
-  const filteredCategories = Object.entries(FILTER_CATEGORIES).filter(([_, { label, options }]) =>
+  const filteredCategories = Object.entries(FILTER_CATEGORIES).filter(([, { label, options }]) =>
     label.toLowerCase().includes(filterSearch.toLowerCase()) ||
     options.some(opt => opt.label.toLowerCase().includes(filterSearch.toLowerCase()))
   );

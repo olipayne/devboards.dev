@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Board } from "@/types/board";
-import { cn } from "@/lib/utils";
 import Image from "next/image"; 
 import { 
   Wifi, 
