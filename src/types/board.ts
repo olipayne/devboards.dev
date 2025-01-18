@@ -46,13 +46,16 @@ export interface ConnectivityInfo {
   can: boolean;
 }
 
-export interface UsbInfo {
-  type: UsbConnectorType;
-  otg: boolean;
+export interface UsbPort {
+  connector: UsbConnectorType;
+  otg?: boolean;
 }
 
 export interface InterfacesInfo {
-  usb: UsbInfo;
+  usb?: {
+    type: UsbConnectorType;
+    otg: boolean;
+  };
   i2c: boolean;
   spi: boolean;
   uart: boolean;
@@ -115,9 +118,7 @@ export interface Board {
   cpu: CpuInfo;
   memory: MemoryInfo;
   gpio: GpioInfo;
-  usbConnectorType: UsbConnectorType | null;
-  
-  // Features
+  usb: UsbPort[];
   connectivity: ConnectivityInfo;
   interfaces: InterfacesInfo;
   power: PowerInfo;

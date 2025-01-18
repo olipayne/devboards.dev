@@ -26,111 +26,24 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { FilterState } from "@/utils/filters";
-import { UsbConnectorType } from "@/types/board";
-import { Board } from "@/types/board"; // Import Board type
+import { 
+  FilterState,
+  FilterConfig,
+  generateFilterOptions
+} from "@/utils/filters";
+import { Board } from "@/types/board"; 
 
 interface FilterPanelProps {
   filters: FilterState;
   setFilters: (filters: FilterState) => void;
   onReset?: () => void;
-  boards: Board[]; // Updated type to Board[]
+  boards: Board[];
 }
-
-interface FilterOption {
-  id: string;
-  label: string;
-}
-
-interface FilterCategory {
-  label: string;
-  options: FilterOption[];
-}
-
-interface FilterConfig {
-  [key: string]: FilterCategory;
-}
-
-const FILTER_CATEGORIES: FilterConfig = {
-  cpu: {
-    label: "CPU",
-    options: [
-      { id: "esp32", label: "ESP32" },
-      { id: "esp32s2", label: "ESP32-S2" },
-      { id: "esp32s3", label: "ESP32-S3" },
-      { id: "esp32c3", label: "ESP32-C3" },
-      { id: "esp8266", label: "ESP8266" },
-      { id: "rp2040", label: "RP2040" },
-      { id: "samd21", label: "SAMD21" },
-      { id: "nrf52840", label: "nRF52840" },
-      { id: "atmega", label: "ATmega" },
-    ],
-  },
-  usb: {
-    label: "USB",
-    options: Object.entries(UsbConnectorType)
-      .filter(([key]) => key !== 'None')
-      .map(([, value]) => ({
-        id: value,
-        label: value === 'Type-C' ? 'USB-C' :
-               value === 'Micro-USB' ? 'Micro USB' :
-               value === 'Mini-USB' ? 'Mini USB' :
-               value === 'USB-B' ? 'USB-B' :
-               value === 'USB-A' ? 'USB-A' : value
-      })),
-  },
-  connectivity: {
-    label: "Connectivity",
-    options: [
-      { id: "wifi", label: "WiFi" },
-      { id: "bluetooth", label: "Bluetooth" },
-      { id: "ethernet", label: "Ethernet" },
-      { id: "lora", label: "LoRa" },
-      { id: "zigbee", label: "Zigbee" },
-      { id: "thread", label: "Thread" },
-    ],
-  },
-  sensors: {
-    label: "Sensors",
-    options: [
-      { id: "temperature", label: "Temperature" },
-      { id: "humidity", label: "Humidity" },
-      { id: "pressure", label: "Pressure" },
-      { id: "imu", label: "IMU" },
-      { id: "microphone", label: "Microphone" },
-      { id: "camera", label: "Camera" },
-    ],
-  },
-  power: {
-    label: "Power",
-    options: [
-      { id: "battery", label: "Battery" },
-      { id: "usb", label: "USB" },
-      { id: "solar", label: "Solar" },
-    ],
-  },
-  display: {
-    label: "Display",
-    options: [
-      { id: "builtin", label: "Built-in Display" },
-      { id: "touch", label: "Touch Screen" },
-    ],
-  },
-  interfaces: {
-    label: "Interfaces",
-    options: [
-      { id: "gpio", label: "GPIO" },
-      { id: "i2c", label: "I2C" },
-      { id: "spi", label: "SPI" },
-      { id: "uart", label: "UART" },
-      { id: "can", label: "CAN" },
-    ],
-  },
-};
 
 export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPanelProps) {
+  const filterCategories = generateFilterOptions(boards);
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>(
-    Object.keys(FILTER_CATEGORIES).reduce((acc, category) => ({
+    Object.keys(filterCategories).reduce((acc, category) => ({
       ...acc,
       [category]: false
     }), {})
@@ -160,14 +73,13 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
     });
   };
 
-  const getFilterCount = (category: string, optionId: string): number => {
-    // Count how many boards would match with just this filter
+  const getFilterCount = (category: string, optionId: string) => {
     return boards.filter(board => {
       if (category === 'cpu') {
-        return board?.cpu?.model?.toLowerCase().includes(optionId.toLowerCase());
+        return board?.cpu?.model === optionId;
       }
       if (category === 'usb') {
-        return board?.interfaces?.usb?.type === optionId;
+        return board.interfaces?.usb?.type === optionId;
       }
       if (category === 'connectivity') {
         return board?.connectivity && optionId in board.connectivity && board.connectivity[optionId as keyof typeof board.connectivity];
@@ -210,7 +122,7 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
         selectedIds.map((id: string) => ({
           category,
           id,
-          label: FILTER_CATEGORIES[category]?.options.find(
+          label: filterCategories[category as keyof FilterConfig]?.options.find(
             (option) => option.id === id
           )?.label || id,
         }))
@@ -219,7 +131,7 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
   };
 
   const activeFilters = getActiveFilters();
-  const filteredCategories = Object.entries(FILTER_CATEGORIES).filter(([, { label, options }]) =>
+  const filteredCategories = Object.entries(filterCategories).filter(([, { label, options }]) =>
     label.toLowerCase().includes(filterSearch.toLowerCase()) ||
     options.some(opt => opt.label.toLowerCase().includes(filterSearch.toLowerCase()))
   );
