@@ -6,19 +6,17 @@ import {
   Wifi, 
   Bluetooth, 
   Github, 
-  Cpu, 
   ShoppingCart, 
   Thermometer,
-  Waves,
-  Camera,
-  Monitor,
-  Battery,
-  Network,
-  Radio,
   Droplets,
   Gauge,
   Move,
-  Mic
+  Mic,
+  Network,
+  Radio,
+  Battery,
+  Monitor,
+  Camera
 } from 'lucide-react';
 
 interface BoardCardProps {

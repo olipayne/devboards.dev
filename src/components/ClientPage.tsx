@@ -43,7 +43,6 @@ export function ClientPage({ boards }: ClientPageProps) {
               <FilterPanel
                 filters={filters}
                 setFilters={setFilters}
-                boards={boards}
               />
             </div>
           </aside>

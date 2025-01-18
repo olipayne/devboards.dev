@@ -121,7 +121,12 @@ export function filterBoards(boards: Board[] = [], filters: FilterState): Board[
 
     // Power source filters
     if (filters.power.length > 0 && board.power) {
-      if (!filters.power.every(source => board.power?.sources?.includes(source))) {
+      if (!filters.power.every(source => {
+        if (source === 'battery') return board.power?.battery?.supported;
+        if (source === 'solar') return board.power?.solar;
+        if (source === 'poe') return board.power?.poe;
+        return false;
+      })) {
         return false;
       }
     }
@@ -135,7 +140,10 @@ export function filterBoards(boards: Board[] = [], filters: FilterState): Board[
 
     // Interface filters
     if (filters.interfaces.length > 0 && board.interfaces) {
-      if (!filters.interfaces.every(iface => board.interfaces?.[iface as keyof typeof board.interfaces])) {
+      if (!filters.interfaces.every(iface => {
+        if (iface === 'usb') return !!board.interfaces?.usb;
+        return board.interfaces?.[iface as keyof typeof board.interfaces];
+      })) {
         return false;
       }
     }

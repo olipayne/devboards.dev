@@ -5,12 +5,11 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { X, Check } from "lucide-react";
 import { FilterState } from "@/utils/filters";
-import { Board, UsbConnectorType } from "@/types/board";
+import { UsbConnectorType } from "@/types/board";
 
 interface FilterPanelProps {
   filters: FilterState;
   setFilters: (filters: FilterState) => void;
-  boards: Board[];
   onReset?: () => void;
 }
 
@@ -47,7 +46,7 @@ const FILTER_CATEGORIES: FilterConfig = {
     label: "USB",
     options: Object.entries(UsbConnectorType)
       .filter(([key]) => key !== 'None')
-      .map(([_, value]) => ({
+      .map(([, value]) => ({
         id: value,
         label: value === 'Type-C' ? 'USB-C' :
                value === 'Micro-USB' ? 'Micro USB' :
@@ -105,38 +104,15 @@ const FILTER_CATEGORIES: FilterConfig = {
   },
 };
 
-export function FilterPanel({ filters, setFilters, boards, onReset }: FilterPanelProps) {
+export function FilterPanel({ filters, setFilters, onReset }: FilterPanelProps) {
   const handleFilterClick = (category: string, id: string) => {
-    const currentFilters = filters[category as keyof FilterState] as string[];
-    const newFilters = currentFilters.includes(id)
-      ? currentFilters.filter(f => f !== id)
-      : [...currentFilters, id];
-
     setFilters({
       ...filters,
-      [category]: newFilters,
+      [category]: filters[category as keyof FilterState]?.includes(id)
+        ? filters[category as keyof FilterState]?.filter((item) => item !== id)
+        : [...(filters[category as keyof FilterState] || []), id],
     });
   };
-
-  const getActiveFilters = () => {
-    const active: { category: string; id: string; label: string }[] = [];
-    Object.entries(FILTER_CATEGORIES).forEach(([category, { options }]) => {
-      const currentFilters = filters[category as keyof FilterState] as string[];
-      currentFilters.forEach(id => {
-        const option = options.find(opt => opt.id === id);
-        if (option) {
-          active.push({
-            category,
-            id,
-            label: option.label,
-          });
-        }
-      });
-    });
-    return active;
-  };
-
-  const activeFilters = getActiveFilters();
 
   const resetFilters = () => {
     setFilters({
@@ -150,6 +126,22 @@ export function FilterPanel({ filters, setFilters, boards, onReset }: FilterPane
     });
     onReset?.();
   };
+
+  const getActiveFilters = () => {
+    return Object.entries(filters)
+      .flatMap(([category, selectedIds]: [string, string[]]) =>
+        selectedIds.map((id: string) => ({
+          category,
+          id,
+          label: FILTER_CATEGORIES[category]?.options.find(
+            (option) => option.id === id
+          )?.label || id,
+        }))
+      )
+      .filter((filter) => filter.label);
+  };
+
+  const activeFilters = getActiveFilters();
 
   return (
     <div className="w-full lg:w-64 shrink-0">
@@ -216,8 +208,8 @@ export function FilterPanel({ filters, setFilters, boards, onReset }: FilterPane
                           ? "bg-primary text-primary-foreground hover:bg-primary/90"
                           : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                       )}
-                      aria-pressed={isSelected}
-                      role="switch"
+                      role="checkbox"
+                      aria-checked={isSelected}
                     >
                       {isSelected && (
                         <Check className="w-4 h-4 mr-1.5 shrink-0" aria-hidden="true" />
