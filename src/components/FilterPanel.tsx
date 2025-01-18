@@ -49,6 +49,8 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
     }), {})
   );
   const [filterSearch, setFilterSearch] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
 
   const handleFilterClick = (category: string, id: string) => {
     setFilters({
@@ -137,11 +139,19 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
     options.some(opt => opt.label.toLowerCase().includes(filterSearch.toLowerCase()))
   );
 
+  const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
+    const target = event.currentTarget;
+    setIsScrolled(target.scrollTop > 0);
+    setIsAtBottom(
+      Math.abs(target.scrollHeight - target.clientHeight - target.scrollTop) < 1
+    );
+  };
+
   return (
-    <div className="w-full lg:w-72 shrink-0">
+    <div className="w-full lg:w-72 shrink-0 lg:sticky lg:top-0 lg:h-screen lg:max-h-screen flex flex-col">
       {/* Header */}
-      <div className="pb-4 space-y-4">
-        <div className="flex items-center justify-between">
+      <div className="pb-4 space-y-4 sticky top-0 bg-background z-10">
+        <div className="flex items-center justify-between pt-4">
           <div className="flex items-center gap-2">
             <Filter className="w-4 h-4" />
             <h2 className="font-medium">Filters</h2>
@@ -190,116 +200,133 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
             </ScrollArea>
           </div>
         )}
+        {/* Add shadow/fade when scrolled */}
+        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-background to-transparent" />
       </div>
 
       {/* Filter Categories */}
-      <ScrollArea className="h-[calc(100vh-16rem)]">
-        <div className="space-y-4 pr-4">
+      <ScrollArea 
+        className="flex-1 relative [&>div]:scroll-smooth" 
+        onScrollCapture={handleScroll}
+      >
+        {/* Top fade effect */}
+        <div className={cn(
+          "absolute top-0 left-0 right-4 bg-gradient-to-b from-background via-background/50 to-transparent pointer-events-none z-10 transition-all duration-200",
+          isScrolled ? "opacity-100 h-16" : "opacity-0 h-8"
+        )} />
+        
+        <div className="space-y-4 pr-4 pb-4">
           {filteredCategories.map(([category, { label, options }]) => {
             const selectedCount = filters[category as keyof FilterState]?.length || 0;
             const totalCount = options.length;
             
             return (
-              <Collapsible
-                key={category}
-                open={expandedCategories[category]}
-                onOpenChange={() => toggleCategory(category)}
-                className="space-y-2"
-              >
-                <div className="flex items-center justify-between">
-                  <CollapsibleTrigger className="flex items-center gap-2 hover:opacity-80">
-                    {expandedCategories[category] ? (
-                      <ChevronDown className="h-4 w-4" />
-                    ) : (
-                      <ChevronRight className="h-4 w-4" />
-                    )}
-                    <h3 className="text-sm font-medium" id={`${category}-heading`}>
-                      {label}
-                    </h3>
-                    {selectedCount > 0 && (
-                      <Badge variant="secondary" className="ml-2">
-                        {selectedCount}/{totalCount}
-                      </Badge>
-                    )}
-                  </CollapsibleTrigger>
-                  
-                  <div className="flex items-center gap-1">
-                    {selectedCount > 0 && (
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              className="h-8 w-8 p-0"
-                              onClick={() => clearCategory(category)}
-                            >
-                              <Square className="h-4 w-4" />
-                            </Button>
-                          </TooltipTrigger>
-                          <TooltipContent>Clear Selection</TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    )}
-                  </div>
-                </div>
-
-                <CollapsibleContent>
-                  <div 
-                    className="flex flex-wrap gap-1.5 pl-6" 
-                    role="group" 
-                    aria-labelledby={`${category}-heading`}
-                  >
-                    {options.filter(option => 
-                      option.label.toLowerCase().includes(filterSearch.toLowerCase())
-                    ).map((option) => {
-                      const isSelected = filters[category as keyof FilterState]?.includes(option.id);
-                      const count = getFilterCount(category, option.id);
-                      
-                      return (
-                        <TooltipProvider key={option.id}>
+              <div key={category} className="space-y-1">
+                <Collapsible
+                  open={expandedCategories[category]}
+                  onOpenChange={() => toggleCategory(category)}
+                >
+                  <div className="flex items-center justify-between">
+                    <CollapsibleTrigger className="flex items-center gap-2 hover:opacity-80">
+                      {expandedCategories[category] ? (
+                        <ChevronDown className="h-4 w-4" />
+                      ) : (
+                        <ChevronRight className="h-4 w-4" />
+                      )}
+                      <h3 className="text-sm font-medium" id={`${category}-heading`}>
+                        {label}
+                      </h3>
+                      {selectedCount > 0 && (
+                        <Badge variant="secondary" className="ml-2">
+                          {selectedCount}/{totalCount}
+                        </Badge>
+                      )}
+                    </CollapsibleTrigger>
+                    
+                    <div className="flex items-center gap-1">
+                      {selectedCount > 0 && (
+                        <TooltipProvider>
                           <Tooltip>
                             <TooltipTrigger asChild>
-                              <button
-                                onClick={() => handleFilterClick(category, option.id)}
-                                className={cn(
-                                  "inline-flex items-center h-7 px-2.5 rounded-full text-sm font-medium transition-all shrink-0",
-                                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
-                                  "disabled:opacity-50 disabled:cursor-not-allowed",
-                                  isSelected
-                                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                                )}
-                                role="checkbox"
-                                aria-checked={isSelected}
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-8 w-8 p-0"
+                                onClick={() => clearCategory(category)}
                               >
-                                {isSelected && (
-                                  <Check className="w-4 h-4 mr-1.5 shrink-0" aria-hidden="true" />
-                                )}
-                                <span className="truncate">{option.label}</span>
-                                {count > 0 && (
-                                  <Badge 
-                                    variant={isSelected ? "secondary" : "outline"} 
-                                    className="ml-1.5 px-1"
-                                  >
-                                    {count}
-                                  </Badge>
-                                )}
-                              </button>
+                                <Square className="h-4 w-4" />
+                              </Button>
                             </TooltipTrigger>
-                            <TooltipContent>
-                              <p>{count} board{count !== 1 ? 's' : ''} available</p>
-                            </TooltipContent>
+                            <TooltipContent>Clear Selection</TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
-                      );
-                    })}
+                      )}
+                    </div>
                   </div>
-                </CollapsibleContent>
-              </Collapsible>
+
+                  <CollapsibleContent>
+                    <div 
+                      className="flex flex-wrap gap-1.5 pl-6" 
+                      role="group" 
+                      aria-labelledby={`${category}-heading`}
+                    >
+                      {options.filter(option => 
+                        option.label.toLowerCase().includes(filterSearch.toLowerCase())
+                      ).map((option) => {
+                        const isSelected = filters[category as keyof FilterState]?.includes(option.id);
+                        const count = getFilterCount(category, option.id);
+                        
+                        return (
+                          <TooltipProvider key={option.id}>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button
+                                  onClick={() => handleFilterClick(category, option.id)}
+                                  className={cn(
+                                    "inline-flex items-center h-7 px-2.5 rounded-full text-sm font-medium transition-all shrink-0",
+                                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                                    "disabled:opacity-50 disabled:cursor-not-allowed",
+                                    isSelected
+                                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                                  )}
+                                  role="checkbox"
+                                  aria-checked={isSelected}
+                                >
+                                  {isSelected && (
+                                    <Check className="w-4 h-4 mr-1.5 shrink-0" aria-hidden="true" />
+                                  )}
+                                  <span className="truncate">{option.label}</span>
+                                  {count > 0 && (
+                                    <Badge 
+                                      variant={isSelected ? "secondary" : "outline"} 
+                                      className="ml-1.5 px-1"
+                                    >
+                                      {count}
+                                    </Badge>
+                                  )}
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>{count} board{count !== 1 ? 's' : ''} available</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        );
+                      })}
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+              </div>
             );
           })}
         </div>
+
+        {/* Bottom fade effect */}
+        <div className={cn(
+          "absolute bottom-0 left-0 right-4 bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none",
+          isAtBottom ? "h-8" : "h-16"
+        )} />
       </ScrollArea>
     </div>
   );
