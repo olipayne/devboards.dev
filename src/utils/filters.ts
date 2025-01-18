@@ -60,6 +60,16 @@ export function generateFilterOptions(boards: Board[]): FilterConfig {
     return freqDiff !== 0 ? freqDiff : a.localeCompare(b);
   });
 
+  // Count frequencies of power features
+  const powerFeatures = {
+    battery: boards.filter(board => board?.power?.battery?.supported).length,
+    battery_connector: boards.filter(board => board?.power?.battery?.connector).length,
+    charging: boards.filter(board => board?.power?.battery?.charging).length,
+    monitoring: boards.filter(board => board?.power?.battery?.monitoring).length,
+    solar: boards.filter(board => board?.power?.solar).length,
+    poe: boards.filter(board => board?.power?.poe).length,
+  };
+
   return {
     cpu: {
       label: 'CPU',
@@ -105,12 +115,13 @@ export function generateFilterOptions(boards: Board[]): FilterConfig {
     power: {
       label: 'Power',
       options: [
-        { id: 'battery', label: 'Battery Support' },
-        { id: 'charging', label: 'Battery Charging' },
-        { id: 'monitoring', label: 'Battery Monitoring' },
-        { id: 'solar', label: 'Solar Charging' },
-        { id: 'poe', label: 'Power over Ethernet' },
-      ],
+        { id: 'battery', label: 'Battery Support', count: powerFeatures.battery },
+        { id: 'battery_connector', label: 'Battery Connector', count: powerFeatures.battery_connector },
+        { id: 'charging', label: 'Battery Charging', count: powerFeatures.charging },
+        { id: 'monitoring', label: 'Battery Monitoring', count: powerFeatures.monitoring },
+        { id: 'solar', label: 'Solar', count: powerFeatures.solar },
+        { id: 'poe', label: 'PoE', count: powerFeatures.poe },
+      ].filter(option => option.count > 0),
     },
     display: {
       label: 'Display',
@@ -171,6 +182,7 @@ export const filterBoards = (boards: Board[], filters: FilterState): Board[] => 
     if (filters.power.length > 0) {
       if (!filters.power.every(feature => {
         if (feature === 'battery') return board?.power?.battery?.supported;
+        if (feature === 'battery_connector') return board?.power?.battery?.connector;
         if (feature === 'charging') return board?.power?.battery?.charging;
         if (feature === 'monitoring') return board?.power?.battery?.monitoring;
         return board?.power && board.power[feature as keyof typeof board.power];

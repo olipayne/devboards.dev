@@ -47,7 +47,7 @@
   },
   "power": {
     "battery": {
-      "supported": false,
+      "supported": true,
       "connector": true,
       "monitoring": false,
       "charging": true

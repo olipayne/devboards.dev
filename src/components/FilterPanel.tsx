@@ -89,6 +89,7 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
       }
       if (category === 'power') {
         if (optionId === 'battery') return board?.power?.battery?.supported;
+        if (optionId === 'battery_connector') return board?.power?.battery?.connector;
         if (optionId === 'charging') return board?.power?.battery?.charging;
         if (optionId === 'monitoring') return board?.power?.battery?.monitoring;
         return board?.power && optionId in board.power && board.power[optionId as keyof typeof board.power];
