@@ -36,11 +36,13 @@ export function generateFilterOptions(boards: Board[]): FilterConfig {
     return acc;
   }, {} as Record<string, number>);
 
-  // Sort CPU models by frequency
-  const sortedUniqueModels = [...new Set(cpuModels)].sort((a, b) => {
-    const freqDiff = frequencyMap[b] - frequencyMap[a];
-    return freqDiff !== 0 ? freqDiff : a.localeCompare(b);
-  });
+  // Sort CPU models by frequency, only including those with 3 or more boards
+  const sortedUniqueModels = [...new Set(cpuModels)]
+    .filter(model => frequencyMap[model] >= 3)
+    .sort((a, b) => {
+      const freqDiff = frequencyMap[b] - frequencyMap[a];
+      return freqDiff !== 0 ? freqDiff : a.localeCompare(b);
+    });
 
   // Get all USB connector types and count frequencies
   const usbConnectors = boards
