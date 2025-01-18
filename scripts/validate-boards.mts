@@ -48,24 +48,24 @@ async function validateBoards(): Promise<ValidationResult> {
         continue;
       }
 
-      // Check for duplicate IDs
+      // Check for duplicate name + manufacturer combinations
       const duplicateCheck = boardFiles
         .filter(f => f !== file)
         .map(f => JSON.parse(readFileSync(join(BOARDS_DIR, f), 'utf8')))
-        .some(b => b.id === boardData.id);
+        .some(b => b.name === boardData.name && b.manufacturer === boardData.manufacturer);
 
       if (duplicateCheck) {
         result.valid = false;
-        result.errors.push(`Duplicate board ID found: ${boardData.id}`);
+        result.errors.push(`Duplicate board found: ${boardData.manufacturer} ${boardData.name}`);
         process.stdout.write(' duplicate ');
       } else {
         process.stdout.write(' duplicate ');
       }
 
       // Validate image URL format
-      if (!isValidUrl(boardData.imageUrl)) {
+      if (boardData.urls?.image && !isValidUrl(boardData.urls.image)) {
         result.valid = false;
-        result.errors.push(`Invalid image URL format in ${file}: ${boardData.imageUrl}`);
+        result.errors.push(`Invalid image URL format in ${file}: ${boardData.urls.image}`);
         process.stdout.write(' url ');
       } else {
         process.stdout.write(' url ');

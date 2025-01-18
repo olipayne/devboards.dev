@@ -1,0 +1,79 @@
+{
+  "name": "ESP32-CAM",
+  "manufacturer": "WaveShare",
+  "releaseDate": "2018-01-30",
+  "price": 7.99,
+  "dimensions": {
+    "length": 40.5,
+    "width": 27.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 512
+  },
+  "gpio": {
+    "gpio": 10,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "None",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": true,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/s?k=esp32-cam&crid=2X0WAYIN5S9L9&sprefix=esp32-cam%2Caps%2C115&linkCode=ll2&tag=smartbeedes07-20&linkId=5cbb44aa7ff28cb36cdbf969491df794&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FM1dApJI22Pm4vHUS8UNAA?alt=media&token=e35200d0-3eb0-432d-ba81-0a67f5d6511f",
+    "purchase": "https://www.waveshare.com/ESP32-CAM.htm",
+    "github": "https://github.com/donny681/ESP32_CAMERA_QR",
+    "documentation": "https://www.waveshare.com/wiki/ESP32-CAM#Introduction"
+  },
+  "openSource": true
+}

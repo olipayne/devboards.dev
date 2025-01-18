@@ -1,0 +1,79 @@
+{
+  "name": "Arduino Due",
+  "manufacturer": "Arduino",
+  "releaseDate": "2012-10-22",
+  "price": 49.0,
+  "dimensions": {
+    "length": 101.52,
+    "width": 53.3,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "SAM3X8E",
+    "architecture": null,
+    "frequency": 100
+  },
+  "memory": {
+    "flash": 512,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 54,
+    "analog": 12,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": true
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://store-usa.arduino.cc/products/arduino-due",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FF7T1ki7vymlSez_3EXTip?alt=media&token=b78a0323-0d0f-46ae-a2e7-3a704e792f96",
+    "purchase": "https://www.amazon.com/Arduino-org-A000062-Arduino-Due/dp/B00A6C3JN2?crid=3BUS26V7HS37M&keywords=arduino+due&qid=1703900368&s=electronics&sprefix=arduino+due%2Celectronics%2C137&sr=1-3&ufe=app_do%3Aamzn1.fos.18630bbb-fcbb-42f8-9767-857e17e03685&linkCode=ll1&tag=smartbeedes07-20&linkId=cde4047632cf24341514c57489d12333&language=en_US&ref_=as_li_ss_tl",
+    "github": null,
+    "documentation": "https://docs.arduino.cc/hardware/due"
+  },
+  "openSource": true
+}

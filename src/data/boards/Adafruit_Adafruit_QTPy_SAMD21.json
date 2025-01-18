@@ -1,0 +1,79 @@
+{
+  "name": "Adafruit QTPy SAMD21",
+  "manufacturer": "Adafruit",
+  "releaseDate": "2020-09-30",
+  "price": 7.5,
+  "dimensions": {
+    "length": 20.57,
+    "width": 17.78,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "SAMD21",
+    "architecture": null,
+    "frequency": 48
+  },
+  "memory": {
+    "flash": 256,
+    "ram": 32
+  },
+  "gpio": {
+    "gpio": 11,
+    "analog": 9,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": false,
+    "spi": false,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://shop.pimoroni.com/products/adafruit-qt-py-samd21-dev-board-with-stemma-qt?variant=32302212808787",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FVuSrzKAfCzNyEs0RrSHHS?alt=media&token=eee70741-9177-494b-b19d-f78cf5c264f0",
+    "purchase": "https://www.adafruit.com/product/4600",
+    "github": "https://github.com/adafruit/Adafruit-QT-Py-PCB",
+    "documentation": "https://learn.adafruit.com/adafruit-qt-py/overview"
+  },
+  "openSource": true
+}

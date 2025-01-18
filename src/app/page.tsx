@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { Board } from '../types/board';
-import { MainContent } from '../components/MainContent';
+import Script from 'next/script';
+import { ClientPage } from '@/components/ClientPage';
 
 function getBoards(): Board[] {
   const boardsDir = path.join(process.cwd(), 'src', 'data', 'boards');
@@ -21,5 +22,39 @@ function getBoards(): Board[] {
 export default function Home() {
   const boards = getBoards();
   
-  return <MainContent initialBoards={boards} />;
+  // Create structured data for search engines
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'itemListElement': boards.map((board, index) => ({
+      '@type': 'Product',
+      'position': index + 1,
+      'name': board.name,
+      'description': `${board.name} development board with ${board.cpu.model} processor`,
+      'brand': {
+        '@type': 'Brand',
+        'name': board.manufacturer
+      },
+      ...(board.price && {
+        'offers': {
+          '@type': 'Offer',
+          'price': board.price.toFixed(2),
+          'priceCurrency': 'USD',
+          'availability': 'https://schema.org/InStock',
+          'url': board.urls.purchase
+        }
+      })
+    }))
+  };
+
+  return (
+    <>
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <ClientPage boards={boards} />
+    </>
+  );
 }

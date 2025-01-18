@@ -1,0 +1,79 @@
+{
+  "name": "FeatherS3 with u.FL",
+  "manufacturer": "Unexpected Maker",
+  "releaseDate": "2023-05-19",
+  "price": 22.5,
+  "dimensions": {
+    "length": 52.3,
+    "width": 22.8,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 16,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 21,
+    "analog": 13,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.adafruit.com/product/5748",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F40ptlggs2bZqRCWMuvbIs?alt=media&token=08276e67-0507-42ae-8da3-201ef5aef1ce",
+    "purchase": "https://www.unexpectedmaker.com/shop.html#!/FeatherS3/p/577111310/category=0",
+    "github": "https://github.com/UnexpectedMaker/esp32s3",
+    "documentation": null
+  },
+  "openSource": true
+}

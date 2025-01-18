@@ -1,47 +1,63 @@
 'use client';
 
-import React, { useState, useEffect, Children, isValidElement, cloneElement, ReactElement } from 'react';
-import { Board } from '../types/board';
-import { FilterState, filterBoards } from '../utils/filters';
+import { useState } from 'react';
+import { FilterPanel } from './FilterPanel';
+import { MainContent } from './MainContent';
+import { Board } from '@/types/board';
+import { FilterState } from '@/utils/filters';
+import { Cpu } from 'lucide-react';
 
 interface ClientPageProps {
-  initialBoards: Board[];
-  children: React.ReactNode;
-}
-
-interface ChildProps {
   boards: Board[];
-  filters: FilterState;
-  onFilterChange: (filters: FilterState) => void;
 }
 
-export function ClientPage({ initialBoards, children }: ClientPageProps) {
-  const [filteredBoards, setFilteredBoards] = useState<Board[]>(initialBoards);
+export function ClientPage({ boards }: ClientPageProps) {
   const [filters, setFilters] = useState<FilterState>({
     cpu: [],
     usb: [],
     connectivity: [],
     sensors: [],
     power: [],
-    features: [],
+    display: [],
     interfaces: [],
   });
 
-  useEffect(() => {
-    setFilteredBoards(filterBoards(initialBoards, filters));
-  }, [initialBoards, filters]);
+  return (
+    <div className="min-h-screen bg-background">
+      <header className="border-b bg-white/50 backdrop-blur-sm sticky top-0 z-10">
+        <div className="container mx-auto px-6 py-6">
+          <div className="flex items-center gap-3 mb-3">
+            <Cpu className="w-8 h-8 text-primary" aria-hidden="true" />
+            <h1 className="text-3xl font-bold tracking-tight">DevBoards</h1>
+          </div>
+          <p className="text-muted-foreground text-lg">
+            Find the perfect development board for your next project
+          </p>
+        </div>
+      </header>
 
-  // Clone the children and inject the filtered boards and filter state
-  const childrenWithProps = Children.map(children, child => {
-    if (isValidElement(child)) {
-      return cloneElement(child as ReactElement<ChildProps>, {
-        boards: filteredBoards,
-        filters,
-        onFilterChange: setFilters,
-      });
-    }
-    return child;
-  });
+      <main className="container mx-auto px-6 py-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+          <aside className="lg:w-64 flex-none">
+            <div className="lg:sticky lg:top-[120px]">
+              <FilterPanel
+                filters={filters}
+                setFilters={setFilters}
+                boards={boards}
+              />
+            </div>
+          </aside>
+          <MainContent boards={boards} filters={filters} />
+        </div>
+      </main>
 
-  return <>{childrenWithProps}</>;
+      <footer className="border-t mt-16">
+        <div className="container mx-auto px-6 py-8">
+          <p className="text-sm text-muted-foreground text-center">
+            DevBoards helps you find and compare development boards for your projects.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
 }

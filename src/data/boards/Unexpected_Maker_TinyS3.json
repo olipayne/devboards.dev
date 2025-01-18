@@ -1,0 +1,79 @@
+{
+  "name": "TinyS3",
+  "manufacturer": "Unexpected Maker",
+  "releaseDate": "2021-04-19",
+  "price": 20.0,
+  "dimensions": {
+    "length": 35.49,
+    "width": 17.53,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 8,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 17,
+    "analog": 9,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.unexpectedmaker.com/shop.html#!/TinyS3/p/577100101/category=0",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2Fa3WCKiFWFnaialjnGpK5J?alt=media&token=d4089517-9866-4634-83e3-9c248fcc16d1",
+    "purchase": "https://www.adafruit.com/product/5398",
+    "github": "https://github.com/UnexpectedMaker/esp32s3",
+    "documentation": "https://esp32s3.com/"
+  },
+  "openSource": true
+}

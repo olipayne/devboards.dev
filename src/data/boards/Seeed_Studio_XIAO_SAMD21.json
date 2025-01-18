@@ -1,0 +1,79 @@
+{
+  "name": "XIAO SAMD21",
+  "manufacturer": "Seeed Studio",
+  "releaseDate": "2020-07-09",
+  "price": 5.4,
+  "dimensions": {
+    "length": 22.0,
+    "width": 17.75,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "SAMD21",
+    "architecture": null,
+    "frequency": 48
+  },
+  "memory": {
+    "flash": 256,
+    "ram": 32
+  },
+  "gpio": {
+    "gpio": 11,
+    "analog": 11,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/Seeeduino-Smallest-Microcontroller-Interfaces-Compatible/dp/B08745JBRP?crid=A9MRCMJJISTL&keywords=adafruit%2Bsamd21&qid=1702237842&sprefix=adafruit%2Bsamd21%2Caps%2C108&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll1&tag=smartbeedes07-20&linkId=a3ba54860c979cd6638be91511cbcc13&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FUC-IoKGw-AP8mcOwDar0T?alt=media&token=d7299d15-e330-4e3b-839a-4b6d96ca6107",
+    "purchase": "https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html",
+    "github": null,
+    "documentation": "https://wiki.seeedstudio.com/Seeeduino-XIAO/"
+  },
+  "openSource": true
+}

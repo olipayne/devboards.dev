@@ -1,0 +1,79 @@
+{
+  "name": "Adafruit ESP32-S3 Feather 4MB Flash 2MB PSRAM",
+  "manufacturer": "Adafruit",
+  "releaseDate": "2022-06-01",
+  "price": 17.5,
+  "dimensions": {
+    "length": 52.3,
+    "width": 22.7,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 22,
+    "analog": 17,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.adafruit.com/product/5477",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FEZjO0_ciEV9QN7cpL_2ha?alt=media&token=91d94ce4-84dc-4ea0-8272-6321fd0873f3",
+    "purchase": "https://www.adafruit.com/product/5477",
+    "github": null,
+    "documentation": "https://learn.adafruit.com/adafruit-esp32-s3-feather/overview"
+  },
+  "openSource": true
+}

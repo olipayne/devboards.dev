@@ -1,0 +1,79 @@
+{
+  "name": "M5Stamp C3U",
+  "manufacturer": "M5Stack",
+  "releaseDate": "2022-02-28",
+  "price": 5.9,
+  "dimensions": {
+    "length": 38.0,
+    "width": 20.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-C3",
+    "architecture": null,
+    "frequency": 160
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 400
+  },
+  "gpio": {
+    "gpio": 14,
+    "analog": 5,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://shop.m5stack.com/products/m5stamp-c3u-mate-with-pin-headers",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F-5Lj9_r78WIf0eBfZ2dPH?alt=media&token=f170a3bd-a28a-4837-b4ca-3d811035a54c",
+    "purchase": "https://s.click.aliexpress.com/e/_DBOD2kv",
+    "github": "https://github.com/m5stack/STAMP-C3/tree/master",
+    "documentation": "https://docs.m5stack.com/en/core/stamp_c3u"
+  },
+  "openSource": true
+}

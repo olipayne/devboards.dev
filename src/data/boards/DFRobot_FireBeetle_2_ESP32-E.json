@@ -1,0 +1,79 @@
+{
+  "name": "FireBeetle 2 ESP32-E",
+  "manufacturer": "DFRobot",
+  "releaseDate": "2023-08-31",
+  "price": 8.9,
+  "dimensions": {
+    "length": 60.0,
+    "width": 25.4,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 520
+  },
+  "gpio": {
+    "gpio": 23,
+    "analog": 5,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.mouser.com/ProductDetail/DFRobot/DFR0654-F?qs=DRkmTr78QARtpUKAs1lqkg%3D%3D",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F82yDIvo2PouTOS5YF_SZk?alt=media&token=31d970e0-d6a8-4251-8e53-61686ef553be",
+    "purchase": "https://www.dfrobot.com/product-2195.html",
+    "github": null,
+    "documentation": "https://wiki.dfrobot.com/FireBeetle_Board_ESP32_E_SKU_DFR0654"
+  },
+  "openSource": true
+}

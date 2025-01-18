@@ -1,0 +1,79 @@
+{
+  "name": "ESP32-DevKitC",
+  "manufacturer": "Espressif",
+  "releaseDate": "2017-07-28",
+  "price": 15.0,
+  "dimensions": {
+    "length": 55.3,
+    "width": 28.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 512
+  },
+  "gpio": {
+    "gpio": 32,
+    "analog": 16,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.adafruit.com/product/3269",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F8z8SbKgTOzr7ZMadqwBzy?alt=media&token=a176112b-8d00-4bce-8d7a-434c0bdbd570",
+    "purchase": "https://www.adafruit.com/product/3269",
+    "github": null,
+    "documentation": "https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-devkitc.html"
+  },
+  "openSource": false
+}

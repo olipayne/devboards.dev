@@ -1,0 +1,79 @@
+{
+  "name": "ESP32CAM-PSRAM (Fish Eye)",
+  "manufacturer": "M5Stack",
+  "releaseDate": "2023-06-16",
+  "price": 9.95,
+  "dimensions": {
+    "length": 47.0,
+    "width": 20.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 520
+  },
+  "gpio": {
+    "gpio": 2,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": true,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.aliexpress.com/i/3256805523577102.html?gatewayAdapt=4itemAdapt",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FS0kiQ9ENOrPNd9stLNf_P?alt=media&token=f6e3e10e-a55c-4e58-baa5-89fa65a98ba9",
+    "purchase": "https://shop.m5stack.com/products/esp32-fisheve-camera-modulewith-psram-ov2640",
+    "github": "https://github.com/m5stack/M5Stack-Camera",
+    "documentation": "https://docs.m5stack.com/en/unit/ESP32CAM-PSRAM"
+  },
+  "openSource": true
+}

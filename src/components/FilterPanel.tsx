@@ -1,64 +1,121 @@
 'use client';
 
-import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ChevronRight, X } from "lucide-react";
-import { FILTER_CATEGORIES, FilterState } from "@/utils/filters";
-import { Board } from "@/types/board";
-import { useState } from "react";
+import { X, Check } from "lucide-react";
+import { FilterState } from "@/utils/filters";
+import { Board, UsbConnectorType } from "@/types/board";
 
 interface FilterPanelProps {
   filters: FilterState;
-  onFilterChange: (filters: FilterState) => void;
+  setFilters: (filters: FilterState) => void;
   boards: Board[];
+  onReset?: () => void;
 }
 
-export function FilterPanel({ filters, onFilterChange, boards }: FilterPanelProps) {
-  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({
-    usb: true,
-    connectivity: true,
-    sensors: true,
-    power: true,
-    features: true,
-    interfaces: true,
-  });
+interface FilterOption {
+  id: string;
+  label: string;
+}
 
-  const toggleCategory = (category: string) => {
-    setOpenCategories(prev => ({
-      ...prev,
-      [category]: !prev[category]
-    }));
-  };
+interface FilterCategory {
+  label: string;
+  options: FilterOption[];
+}
 
+interface FilterConfig {
+  [key: string]: FilterCategory;
+}
+
+const FILTER_CATEGORIES: FilterConfig = {
+  cpu: {
+    label: "CPU",
+    options: [
+      { id: "esp32", label: "ESP32" },
+      { id: "esp32s2", label: "ESP32-S2" },
+      { id: "esp32s3", label: "ESP32-S3" },
+      { id: "esp32c3", label: "ESP32-C3" },
+      { id: "esp8266", label: "ESP8266" },
+      { id: "rp2040", label: "RP2040" },
+      { id: "samd21", label: "SAMD21" },
+      { id: "nrf52840", label: "nRF52840" },
+      { id: "atmega", label: "ATmega" },
+    ],
+  },
+  usb: {
+    label: "USB",
+    options: Object.entries(UsbConnectorType)
+      .filter(([key]) => key !== 'None')
+      .map(([_, value]) => ({
+        id: value,
+        label: value === 'Type-C' ? 'USB-C' :
+               value === 'Micro-USB' ? 'Micro USB' :
+               value === 'Mini-USB' ? 'Mini USB' :
+               value === 'USB-B' ? 'USB-B' :
+               value === 'USB-A' ? 'USB-A' : value
+      })),
+  },
+  connectivity: {
+    label: "Connectivity",
+    options: [
+      { id: "wifi", label: "WiFi" },
+      { id: "bluetooth", label: "Bluetooth" },
+      { id: "ethernet", label: "Ethernet" },
+      { id: "lora", label: "LoRa" },
+      { id: "zigbee", label: "Zigbee" },
+      { id: "thread", label: "Thread" },
+    ],
+  },
+  sensors: {
+    label: "Sensors",
+    options: [
+      { id: "temperature", label: "Temperature" },
+      { id: "humidity", label: "Humidity" },
+      { id: "pressure", label: "Pressure" },
+      { id: "imu", label: "IMU" },
+      { id: "microphone", label: "Microphone" },
+      { id: "camera", label: "Camera" },
+    ],
+  },
+  power: {
+    label: "Power",
+    options: [
+      { id: "battery", label: "Battery" },
+      { id: "usb", label: "USB" },
+      { id: "solar", label: "Solar" },
+    ],
+  },
+  display: {
+    label: "Display",
+    options: [
+      { id: "builtin", label: "Built-in Display" },
+      { id: "touch", label: "Touch Screen" },
+    ],
+  },
+  interfaces: {
+    label: "Interfaces",
+    options: [
+      { id: "gpio", label: "GPIO" },
+      { id: "i2c", label: "I2C" },
+      { id: "spi", label: "SPI" },
+      { id: "uart", label: "UART" },
+      { id: "can", label: "CAN" },
+    ],
+  },
+};
+
+export function FilterPanel({ filters, setFilters, boards, onReset }: FilterPanelProps) {
   const handleFilterClick = (category: string, id: string) => {
     const currentFilters = filters[category as keyof FilterState] as string[];
     const newFilters = currentFilters.includes(id)
       ? currentFilters.filter(f => f !== id)
       : [...currentFilters, id];
 
-    onFilterChange({
+    setFilters({
       ...filters,
       [category]: newFilters,
     });
-  };
-
-  const isFilterActive = (category: string, id: string) => {
-    const currentFilters = filters[category as keyof FilterState] as string[];
-    return currentFilters.includes(id);
-  };
-
-  const getBoardCountForFilter = (category: string, id: string) => {
-    if (!Array.isArray(boards)) {
-      console.error('boards prop is not an array:', boards);
-      return 0;
-    }
-
-    if (category === 'usb') {
-      return boards.filter(board => board.usbConnectorType === id).length;
-    }
-    return boards.filter(board => board[id as keyof Board] === true).length;
   };
 
   const getActiveFilters = () => {
@@ -79,101 +136,98 @@ export function FilterPanel({ filters, onFilterChange, boards }: FilterPanelProp
     return active;
   };
 
+  const activeFilters = getActiveFilters();
+
   const resetFilters = () => {
-    onFilterChange({
+    setFilters({
       cpu: [],
       usb: [],
       connectivity: [],
       sensors: [],
       power: [],
-      features: [],
+      display: [],
       interfaces: [],
     });
+    onReset?.();
   };
 
-  const activeFilters = getActiveFilters();
-  const hasActiveFilters = activeFilters.length > 0;
-
   return (
-    <div className="w-64 shrink-0 space-y-4 bg-card rounded-lg border p-4">
-      <div className="font-semibold text-lg">Filters</div>
-
+    <div className="w-full lg:w-64 shrink-0">
       {/* Active Filters */}
-      {hasActiveFilters && (
-        <div className="space-y-2 pb-4 border-b">
-          <div className="flex items-center justify-between">
-            <div className="text-sm text-muted-foreground">Active Filters</div>
+      <div className="space-y-4 mb-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-sm font-medium text-gray-900">Filters</h2>
+          {activeFilters.length > 0 && (
             <Button
               variant="ghost"
               size="sm"
               onClick={resetFilters}
-              className="h-7 px-2 text-xs"
+              className="h-8 px-2 text-sm hover:bg-destructive/10 hover:text-destructive"
             >
-              Reset All
+              Clear all
             </Button>
-          </div>
-          <div className="flex flex-wrap gap-1">
-            {activeFilters.map(({ category, id, label }) => (
-              <Badge
-                key={`${category}-${id}`}
-                variant="secondary"
-                className="flex items-center gap-1 text-xs"
-              >
-                {label}
-                <X
-                  className="h-3 w-3 cursor-pointer hover:text-destructive"
-                  onClick={() => handleFilterClick(category, id)}
-                />
-              </Badge>
-            ))}
-          </div>
+          )}
         </div>
-      )}
+
+        {activeFilters.length > 0 && (
+          <ScrollArea className="w-full" style={{ maxHeight: activeFilters.length > 6 ? '160px' : 'auto' }}>
+            <div className="flex flex-wrap gap-1.5 pr-4">
+              {activeFilters.map(({ category, id, label }) => (
+                <Button
+                  key={`${category}-${id}`}
+                  variant="secondary"
+                  size="sm"
+                  className="h-7 pl-2 pr-1 text-sm group shrink-0"
+                  onClick={() => handleFilterClick(category, id)}
+                >
+                  <span className="truncate">{label}</span>
+                  <X className="w-4 h-4 ml-1 shrink-0 group-hover:text-destructive" />
+                </Button>
+              ))}
+            </div>
+          </ScrollArea>
+        )}
+      </div>
 
       {/* Filter Categories */}
       <ScrollArea className="h-[calc(100vh-16rem)]">
-        <div className="space-y-4 pr-4">
+        <div className="space-y-6 pr-4">
           {Object.entries(FILTER_CATEGORIES).map(([category, { label, options }]) => (
-            <Collapsible
-              key={category}
-              open={openCategories[category]}
-              onOpenChange={() => toggleCategory(category)}
-              className="space-y-2"
-            >
-              <CollapsibleTrigger className="flex items-center justify-between w-full">
-                <div className="flex items-center gap-2">
-                  <ChevronRight
-                    className={`h-4 w-4 transition-transform ${
-                      openCategories[category] ? "transform rotate-90" : ""
-                    }`}
-                  />
-                  <h3 className="font-medium">{label}</h3>
-                </div>
-                {filters[category as keyof FilterState].length > 0 && (
-                  <Badge variant="secondary" className="text-xs">
-                    {filters[category as keyof FilterState].length}
-                  </Badge>
-                )}
-              </CollapsibleTrigger>
-              <CollapsibleContent className="space-y-2 pl-6">
-                <div className="flex flex-wrap gap-1">
-                  {options.map(({ id, label }) => {
-                    const count = getBoardCountForFilter(category, id);
-                    return (
-                      <Badge
-                        key={id}
-                        variant={isFilterActive(category, id) ? "default" : "outline"}
-                        className="cursor-pointer hover:bg-primary/90 transition-colors text-xs"
-                        onClick={() => handleFilterClick(category, id)}
-                        title={`${count} board${count !== 1 ? 's' : ''}`}
-                      >
-                        {label}
-                      </Badge>
-                    );
-                  })}
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
+            <div key={category} className="space-y-3">
+              <h3 className="text-sm font-medium text-gray-900" id={`${category}-heading`}>
+                {label}
+              </h3>
+              <div 
+                className="flex flex-wrap gap-1.5" 
+                role="group" 
+                aria-labelledby={`${category}-heading`}
+              >
+                {options.map((option) => {
+                  const isSelected = filters[category as keyof FilterState]?.includes(option.id);
+                  return (
+                    <button
+                      key={option.id}
+                      onClick={() => handleFilterClick(category, option.id)}
+                      className={cn(
+                        "inline-flex items-center h-7 px-2.5 rounded-full text-sm font-medium transition-all shrink-0",
+                        "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                        "disabled:opacity-50 disabled:cursor-not-allowed",
+                        isSelected
+                          ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                          : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                      )}
+                      aria-pressed={isSelected}
+                      role="switch"
+                    >
+                      {isSelected && (
+                        <Check className="w-4 h-4 mr-1.5 shrink-0" aria-hidden="true" />
+                      )}
+                      <span className="truncate">{option.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           ))}
         </div>
       </ScrollArea>

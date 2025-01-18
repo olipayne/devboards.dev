@@ -1,0 +1,79 @@
+{
+  "name": "Raspberry Pi Pico W",
+  "manufacturer": "Raspberry Pi",
+  "releaseDate": "2022-06-30",
+  "price": 6.0,
+  "dimensions": {
+    "length": 51.0,
+    "width": 21.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "RP2040",
+    "architecture": null,
+    "frequency": 133
+  },
+  "memory": {
+    "flash": 2,
+    "ram": 264
+  },
+  "gpio": {
+    "gpio": 25,
+    "analog": 3,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.adafruit.com/product/5526",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2Fk3bU3p38SztqfmksS87bq?alt=media&token=ee452b62-bfea-49b6-b289-54f7ef82520c",
+    "purchase": "https://www.amazon.com/s?k=raspberry+pi+pico+w&crid=2027T8TKUSHYW&sprefix=raspberry+pi+pico+w%2Caps%2C118&linkCode=ll2&tag=smartbeedes07-20&linkId=b6d1c1b5e4869fad552c372e30cb2a9d&language=en_US&ref_=as_li_ss_tl",
+    "github": null,
+    "documentation": "https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf"
+  },
+  "openSource": true
+}

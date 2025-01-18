@@ -1,0 +1,79 @@
+{
+  "name": "MaTouch ESP32-S3 7\u201c TFT with Touch",
+  "manufacturer": "MakerFabs",
+  "releaseDate": "2023-06-06",
+  "price": 45.9,
+  "dimensions": {
+    "length": 165.0,
+    "width": 100.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 16,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 2,
+    "analog": 2,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": true,
+    "touch": true
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.makerfabs.com/esp32-s3-parallel-tft-with-touch-7-inch.html",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FdQ3tzdwIVFUDScXEZM8Hi?alt=media&token=e7518c97-117e-448d-8849-dae3bc7f43b1",
+    "purchase": null,
+    "github": "https://github.com/Makerfabs/ESP32-S3-Parallel-TFT-with-Touch-7inch/tree/main",
+    "documentation": null
+  },
+  "openSource": true
+}

@@ -1,0 +1,79 @@
+{
+  "name": "ESP32-S3-DevKitC-1-N32R8V",
+  "manufacturer": "Espressif",
+  "releaseDate": "2021-08-16",
+  "price": 19.95,
+  "dimensions": {
+    "length": 68.86,
+    "width": 26.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 32,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 39,
+    "analog": 20,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.mouser.com/ProductDetail/Espressif-Systems/ESP32-S3-DevKitC-1-N32R8V?qs=Li%252BoUPsLEnvTvWIWLPCZ4g%3D%3D",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FGBviV_Np0f_8EZD9R-fgT?alt=media&token=67e1dac9-a65a-49fe-a4fd-ab7eed9eb592",
+    "purchase": "https://www.amazon.com/Espressif-ESP32-S3-DevKitC-1-N32R8V-Development-Board/dp/B09R4GSDJM?crid=S1MX1ID95HBQ&keywords=ESP32-S3-DevKitC-1-N32R8V&qid=1704060021&sprefix=esp32-s3-devkitc-1-n32r8v%2Caps%2C129&sr=8-3&linkCode=ll1&tag=smartbeedes07-20&linkId=cf82586330c19a9d8ec9e675bb1e7542&language=en_US&ref_=as_li_ss_tl",
+    "github": null,
+    "documentation": "https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/hw-reference/esp32s3/user-guide-devkitc-1.html"
+  },
+  "openSource": true
+}

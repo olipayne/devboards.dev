@@ -1,0 +1,79 @@
+{
+  "name": "Waveshare RP2040-PiZero",
+  "manufacturer": "WaveShare",
+  "releaseDate": "2021-11-04",
+  "price": 10.0,
+  "dimensions": {
+    "length": 65.0,
+    "width": 30.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "RP2040",
+    "architecture": null,
+    "frequency": 133
+  },
+  "memory": {
+    "flash": 16,
+    "ram": 264
+  },
+  "gpio": {
+    "gpio": 40,
+    "analog": 4,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": true,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.waveshare.com/rp2040-pizero.htm",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2Fe27KYn8ptR_23cyYjlJ-z?alt=media&token=2ee62168-2e5f-4143-ad59-5df4dcc18120",
+    "purchase": "https://www.waveshare.com/rp2040-pizero.htm",
+    "github": null,
+    "documentation": "https://www.waveshare.com/wiki/RP2040-PiZero"
+  },
+  "openSource": true
+}

@@ -1,0 +1,79 @@
+{
+  "name": "ESP32 PSRAM Timer Camera",
+  "manufacturer": "M5Stack",
+  "releaseDate": "2021-04-15",
+  "price": 15.95,
+  "dimensions": {
+    "length": 45.0,
+    "width": 20.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 520
+  },
+  "gpio": {
+    "gpio": 0,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": true,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://s.click.aliexpress.com/e/_Dn4hzhJ",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FQTxIS3ix28POVIlsF_GZj?alt=media&token=d090a6b1-5cc6-4da9-a7b5-60859d374368",
+    "purchase": "https://shop.m5stack.com/products/esp32-psram-timer-camera-ov3660",
+    "github": "https://docs.m5stack.com/en/unit/timercam",
+    "documentation": "https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/schematic/TimerCAM/Sch_M5TimerCAM.pdf"
+  },
+  "openSource": true
+}

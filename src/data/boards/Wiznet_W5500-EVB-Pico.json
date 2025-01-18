@@ -1,0 +1,79 @@
+{
+  "name": "W5500-EVB-Pico",
+  "manufacturer": "Wiznet",
+  "releaseDate": "2022-05-11",
+  "price": 12.5,
+  "dimensions": {
+    "length": 75.0,
+    "width": 21.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "RP2040",
+    "architecture": null,
+    "frequency": 133
+  },
+  "memory": {
+    "flash": 2,
+    "ram": 264
+  },
+  "gpio": {
+    "gpio": 30,
+    "analog": 4,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": true,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.sparkfun.com/products/19958",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FNfd7VWEffIcxZDvjvPo4H?alt=media&token=1c949178-2b48-40a2-8f97-e3e083fe1527",
+    "purchase": "https://eshop.wiznet.io/shop/module/w5500-evb-pico/",
+    "github": "https://github.com/Wiznet/Hardware-Files-of-WIZnet/tree/master/02_iEthernet/W5500",
+    "documentation": "https://eshop.wiznet.io/shop/module/w5500-evb-pico/"
+  },
+  "openSource": true
+}

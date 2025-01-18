@@ -1,0 +1,79 @@
+{
+  "name": "ESP32 DevKit V1",
+  "manufacturer": "Generic",
+  "releaseDate": "2016-09-20",
+  "price": 4.0,
+  "dimensions": {
+    "length": 51.0,
+    "width": 29.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 30,
+    "analog": 15,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://s.click.aliexpress.com/e/_DEUOYNT",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F22iv1OQnje9dah-KjRP38?alt=media&token=75ff9396-9214-4cea-9262-ef7874b63819",
+    "purchase": "https://www.amazon.com/dp/B08D5ZD528?_encoding=UTF8&th=1&linkCode=ll1&tag=smartbeedes07-20&linkId=b91dc4acdb9fa154ef2005d937a1e64a&language=en_US&ref_=as_li_ss_tl",
+    "github": null,
+    "documentation": null
+  },
+  "openSource": true
+}

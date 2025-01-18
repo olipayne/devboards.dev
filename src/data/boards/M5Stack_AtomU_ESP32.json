@@ -1,0 +1,79 @@
+{
+  "name": "AtomU ESP32",
+  "manufacturer": "M5Stack",
+  "releaseDate": "2020-04-23",
+  "price": 12.5,
+  "dimensions": {
+    "length": 52.0,
+    "width": 20.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 4,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "None",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": true,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://shop.m5stack.com/products/atomu-esp32-development-kit-with-usb-a",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FDhVYte_cTx2h-68834gc7?alt=media&token=5b53bc7c-66be-439b-9b88-dcf3e319b944",
+    "purchase": "https://shop.m5stack.com/products/atomu-esp32-development-kit-with-usb-a",
+    "github": "https://github.com/m5stack/M5AtomU",
+    "documentation": "https://docs.m5stack.com/en/core/atom_u"
+  },
+  "openSource": true
+}

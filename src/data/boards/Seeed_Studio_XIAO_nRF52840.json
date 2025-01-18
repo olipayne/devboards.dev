@@ -1,0 +1,79 @@
+{
+  "name": "XIAO nRF52840",
+  "manufacturer": "Seeed Studio",
+  "releaseDate": "2022-02-24",
+  "price": 9.9,
+  "dimensions": {
+    "length": 22.0,
+    "width": 17.75,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "nRF52840",
+    "architecture": null,
+    "frequency": 64
+  },
+  "memory": {
+    "flash": 2,
+    "ram": 256
+  },
+  "gpio": {
+    "gpio": 11,
+    "analog": 6,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": true,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/Seeed-Studio-XIAO-nRF52840-Sense/dp/B09T9VVQG7?crid=YJ6YVL9I9O8A&keywords=XIAO%2BnRF52840%2BSense&qid=1702239272&sprefix=xiao%2Bnrf52840%2Bsense%2Caps%2C207&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll1&tag=smartbeedes07-20&linkId=7624ac80767b0e346d13ec61d047d87a&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F-oHwyHep1UnHQlzLpl2CJ?alt=media&token=95a41046-cf75-42e5-ad1d-3bc767a53bba",
+    "purchase": "https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html",
+    "github": null,
+    "documentation": "https://wiki.seeedstudio.com/XIAO_BLE/"
+  },
+  "openSource": true
+}

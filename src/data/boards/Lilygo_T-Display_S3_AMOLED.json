@@ -1,0 +1,79 @@
+{
+  "name": "T-Display S3 AMOLED",
+  "manufacturer": "Lilygo",
+  "releaseDate": "2023-01-01",
+  "price": 27.0,
+  "dimensions": {
+    "length": 60.0,
+    "width": 26.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 16,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 18,
+    "analog": 10,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": true,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.lilygo.cc/products/t-display-s3-amoled",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F4gyQ9ArXuTYacKqndhTYC?alt=media&token=2d196eef-665f-4e33-b338-40affa8cbea3",
+    "purchase": "https://www.amazon.com/LILYGO-T-Display-S3-ESP32-S3-Development-Wireless/dp/B0C2T6T8YC?crid=CXDBF1X346DQ&keywords=lilygo&qid=1704148806&sprefix=lilygo%2Caps%2C122&sr=8-4&th=1&linkCode=ll1&tag=smartbeedes07-20&linkId=dbde94eefb25430a184a8478a5ec8889&language=en_US&ref_=as_li_ss_tl",
+    "github": "https://github.com/Xinyuan-LilyGO/LilyGo-AMOLED-Series/tree/master",
+    "documentation": null
+  },
+  "openSource": true
+}

@@ -1,0 +1,79 @@
+{
+  "name": "Feather ESP32-S2 TFT",
+  "manufacturer": "Adafruit",
+  "releaseDate": "2021-12-21",
+  "price": 24.95,
+  "dimensions": {
+    "length": 52.4,
+    "width": 22.8,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S2",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 22,
+    "analog": 15,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": true,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.adafruit.com/product/5300",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2Fo2Tris6BRQhuLEiqyldLU?alt=media&token=ab70bb00-4c48-48e8-9d71-db58f5143618",
+    "purchase": "https://www.adafruit.com/product/5300",
+    "github": "https://github.com/adafruit/Adafruit-ESP32-S2-TFT-Feather-PCB",
+    "documentation": "https://learn.adafruit.com/adafruit-esp32-s2-tft-feather"
+  },
+  "openSource": true
+}

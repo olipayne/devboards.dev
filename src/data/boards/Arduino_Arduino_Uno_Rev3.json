@@ -1,0 +1,79 @@
+{
+  "name": "Arduino Uno Rev3",
+  "manufacturer": "Arduino",
+  "releaseDate": "2011-09-24",
+  "price": 27.6,
+  "dimensions": {
+    "length": 68.6,
+    "width": 53.4,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ATmega328P",
+    "architecture": null,
+    "frequency": 16
+  },
+  "memory": {
+    "flash": 32,
+    "ram": 2
+  },
+  "gpio": {
+    "gpio": 14,
+    "analog": 6,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "None",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6?crid=K22G56YCLN16&keywords=arduino%2Buno%2Br4&qid=1702237053&sprefix=arduino%2Buno%2Caps%2C124&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll1&tag=smartbeedes07-20&linkId=34a26c4bf2d61c0ee1c3eb6b21bf20c2&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F5svQn9t92HX7j0l04NylI?alt=media&token=80ac8179-f3e3-4bb7-bf7c-76e0e61c6ede",
+    "purchase": "https://store-usa.arduino.cc/products/arduino-uno-rev3",
+    "github": null,
+    "documentation": "https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf"
+  },
+  "openSource": true
+}

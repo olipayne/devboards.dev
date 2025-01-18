@@ -1,0 +1,79 @@
+{
+  "name": "ESP32-C3-DevKit",
+  "manufacturer": "Espressif",
+  "releaseDate": "2020-11-27",
+  "price": 9.95,
+  "dimensions": {
+    "length": 44.79,
+    "width": 25.46,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-C3",
+    "architecture": null,
+    "frequency": 160
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 15,
+    "analog": 6,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.mouser.com/ProductDetail/Espressif-Systems/ESP32-C3-DevKitM-1?qs=pUKx8fyJudB1sOWbbEnGFw%3D%3D",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FOOiLY-TdGcv4JpMVnAJ3k?alt=media&token=4c1d7a5c-a239-4259-a27a-6e5b1cda251d",
+    "purchase": "https://www.adafruit.com/product/5337",
+    "github": null,
+    "documentation": "https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/hw-reference/esp32c3/user-guide-devkitm-1.html"
+  },
+  "openSource": true
+}

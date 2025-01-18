@@ -1,0 +1,79 @@
+{
+  "name": "Luckfox Pico Max",
+  "manufacturer": "WaveShare",
+  "releaseDate": "2023-08-09",
+  "price": 14.99,
+  "dimensions": {
+    "length": 72.0,
+    "width": 21.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "RV1106",
+    "architecture": null,
+    "frequency": 100
+  },
+  "memory": {
+    "flash": 256,
+    "ram": 256
+  },
+  "gpio": {
+    "gpio": 26,
+    "analog": 2,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": true,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/Luckfox-Pico-Max-Development-Processors-256MB/dp/B0CKR2GD9X?crid=C7TF9XL0RJI1&keywords=lucky+fox+pico&qid=1704148717&sprefix=luckfox+pico%2Caps%2C104&sr=8-1&linkCode=ll1&tag=smartbeedes07-20&linkId=4295982c0f0e8b24ef5224ce9844a76e&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FHija2gVFb9SHcLJUNNauv?alt=media&token=8dc8c9d6-bf76-4911-8fbe-074efe2b686d",
+    "purchase": "https://www.waveshare.com/product/luckfox/boards-modules/luckfox-pico-1/luckfox-pico-pro.htm?sku=25719",
+    "github": "https://github.com/LuckfoxTECH/luckfox-pico",
+    "documentation": "https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-quick-start/"
+  },
+  "openSource": true
+}

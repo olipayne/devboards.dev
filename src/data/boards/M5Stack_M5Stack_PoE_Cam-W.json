@@ -1,0 +1,79 @@
+{
+  "name": "M5Stack PoE Cam-W",
+  "manufacturer": "M5Stack",
+  "releaseDate": "2021-08-27",
+  "price": 39.9,
+  "dimensions": {
+    "length": 64.0,
+    "width": 24.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 16,
+    "ram": 520
+  },
+  "gpio": {
+    "gpio": 2,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": true,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "None",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": true,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": true
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": true,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://shop.m5stack.com/products/m5stack-poe-camera-with-wi-fi-ov2640",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F1n-OHxB_UnGYmL0X8h5YG?alt=media&token=f45c906d-194a-4163-b421-89e5d8df5b85",
+    "purchase": "https://shop.m5stack.com/products/m5stack-poe-camera-with-wi-fi-ov2640",
+    "github": "https://github.com/m5stack/PoE_CAM",
+    "documentation": "https://docs.m5stack.com/en/unit/poe_cam"
+  },
+  "openSource": true
+}

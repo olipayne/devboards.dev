@@ -1,82 +1,125 @@
 import { z } from 'zod';
-import { UsbConnectorType } from '../types/board';
 
-const UsbConnectorTypeSchema = z.nativeEnum(UsbConnectorType);
+// Dimensions schema
+const DimensionsSchema = z.object({
+  length: z.number().positive(),
+  width: z.number().positive(),
+  height: z.number().positive(),
+}).strict();
 
-export const BoardSchema = z.object({
-  // Basic Information
-  id: z.string(),
-  name: z.string(),
-  brand: z.string(),
-  imageUrl: z.string().url(),
-  purchaseUrl: z.string().url().optional(),
-  price: z.number().positive().optional(),
-  releaseDate: z.string().optional(),
-  
-  // Technical Specifications
-  cpuArchitecture: z.string(),
-  cpuFrequency: z.number().positive().optional(),
-  flashSize: z.number().positive().optional(),
-  ramSize: z.number().positive().optional(),
-  usbConnectorType: UsbConnectorTypeSchema,
-  
-  // All boolean fields
+// CPU specifications schema
+const CpuSpecsSchema = z.object({
+  model: z.string(),
+  architecture: z.string().nullable(),
+  frequency: z.number().positive().nullable(),
+}).strict();
+
+// Memory specifications schema
+const MemorySpecsSchema = z.object({
+  flash: z.number().nonnegative(), // Allow 0 for unknown values
+  ram: z.number().nonnegative(), // Allow 0 for unknown values
+}).strict();
+
+// GPIO specifications schema
+const GpioSpecsSchema = z.object({
+  gpio: z.number().int().nonnegative(), // Allow 0 for unknown values
+  analog: z.number().int().positive().nullable(),
+  pwm: z.number().int().positive().nullable(),
+}).strict();
+
+// Connectivity features schema
+const ConnectivitySchema = z.object({
   wifi: z.boolean(),
   bluetooth: z.boolean(),
   lora: z.boolean(),
   ethernet: z.boolean(),
   zigbee: z.boolean(),
-  threadProtocol: z.boolean(),
+  thread: z.boolean(),
   matter: z.boolean(),
   can: z.boolean(),
+}).strict();
+
+// Interface specifications schema
+const InterfacesSchema = z.object({
+  usb: z.object({
+    type: z.enum(['Type-C', 'Micro-USB', 'Mini-USB', 'USB-B', 'USB-A', 'None']),
+    otg: z.boolean(),
+  }).strict(),
   i2c: z.boolean(),
   spi: z.boolean(),
-  batteryPowered: z.boolean(),
-  batteryConnector: z.boolean(),
-  batteryMonitoring: z.boolean(),
-  liPoCharging: z.boolean(),
-  barrelJack5V: z.boolean(),
-  dualLDOs: z.boolean(),
-  ultraLowPower: z.boolean(),
-  lowPowerDeepSleep: z.boolean(),
-  nativeUSB: z.boolean(),
-  pioUSB: z.boolean(),
-  usbHost: z.boolean(),
-  usbDetection: z.boolean(),
-  dualUSB: z.boolean(),
-  hid: z.boolean(),
-  accelerometer: z.boolean(),
-  gyroscope: z.boolean(),
-  temperatureSensor: z.boolean(),
-  hallSensor: z.boolean(),
-  lightSensor: z.boolean(),
-  altitudeSensor: z.boolean(),
-  motionSensor: z.boolean(),
-  display: z.boolean(),
-  touchScreen: z.boolean(),
-  camera: z.boolean(),
-  speaker: z.boolean(),
-  microphone: z.boolean(),
-  sdCard: z.boolean(),
-  rtc: z.boolean(),
-  openSource: z.boolean(),
-  breadBoardFriendly: z.boolean(),
-  stemmaConnector: z.boolean(),
-  groveConnector: z.boolean(),
-  uextConnector: z.boolean(),
+  uart: z.boolean(),
+  jtag: z.boolean(),
+  qwiic: z.boolean(),
+  grove: z.boolean(),
+  stemma: z.boolean(),
+}).strict();
+
+// Power specifications schema
+const PowerSpecsSchema = z.object({
+  battery: z.object({
+    supported: z.boolean(),
+    connector: z.boolean(),
+    monitoring: z.boolean(),
+    charging: z.boolean(),
+  }).strict(),
+  solar: z.boolean(),
   poe: z.boolean(),
-  solarCharging: z.boolean(),
-  // Optional fields
-  uartPins: z.number().positive().optional(),
-  gpio: z.number().positive().optional(),
-  dimensions: z.object({
-    length: z.number().positive(),
-    width: z.number().positive(),
-    height: z.number().positive(),
-  }).optional(),
-  githubUrl: z.string().url().optional(),
-  documentationUrl: z.string().url().optional(),
-  schematicUrl: z.string().url().optional(),
-});
+}).strict();
+
+// Display specifications schema
+const DisplaySchema = z.object({
+  builtin: z.boolean(),
+  touch: z.boolean(),
+}).strict();
+
+// Sensors specifications schema
+const SensorsSchema = z.object({
+  temperature: z.boolean(),
+  humidity: z.boolean(),
+  pressure: z.boolean(),
+  imu: z.boolean(),
+  microphone: z.boolean(),
+  camera: z.boolean(),
+  hall: z.boolean(),
+}).strict();
+
+// URLs schema
+const UrlsSchema = z.object({
+  product: z.string().url().nullable(),
+  image: z.string().url().nullable(),
+  purchase: z.string().url().nullable(),
+  github: z.string().url().nullable(),
+  documentation: z.string().url().nullable(),
+}).strict();
+
+// Main board schema
+export const BoardSchema = z.object({
+  // Basic Information
+  name: z.string(),
+  manufacturer: z.string(),
+  releaseDate: z.string().date().nullable(),
+  price: z.number().positive().nullable(),
+  
+  // Physical Specifications
+  dimensions: DimensionsSchema,
+  
+  // Technical Specifications
+  cpu: CpuSpecsSchema,
+  memory: MemorySpecsSchema,
+  gpio: GpioSpecsSchema,
+  
+  // Features
+  connectivity: ConnectivitySchema,
+  interfaces: InterfacesSchema,
+  power: PowerSpecsSchema,
+  display: DisplaySchema.nullable(),
+  sensors: SensorsSchema.nullable(),
+  
+  // URLs and Resources
+  urls: UrlsSchema,
+  
+  // Additional Properties
+  openSource: z.boolean(),
+}).strict();
 
 export type BoardSchemaType = z.infer<typeof BoardSchema>;

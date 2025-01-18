@@ -1,0 +1,79 @@
+{
+  "name": "LOLIN NodeMCU V3",
+  "manufacturer": "Lolin",
+  "releaseDate": "2014-08-13",
+  "price": 4.0,
+  "dimensions": {
+    "length": 58.0,
+    "width": 31.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP8266-12E",
+    "architecture": null,
+    "frequency": 80
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 19,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://s.click.aliexpress.com/e/_DnoLFlf",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2Falp_vm_ndW5D9eKVwgU70?alt=media&token=c5ae8b6f-2990-43e5-b788-601023db4320",
+    "purchase": "https://www.amazon.com/Aceirmc-Wireless-Internet-Development-Compatible/dp/B0828L4743?crid=YTE7AYVRGVPL&keywords=lolin%2Bnodemcu%2Bv3&qid=1704144479&s=electronics&sprefix=lolin%2Bnodemcu%2Bv3%2Celectronics%2C117&sr=1-2&th=1&linkCode=ll1&tag=smartbeedes07-20&linkId=8afa7a905960374427c65a6092bfb04f&language=en_US&ref_=as_li_ss_tl",
+    "github": null,
+    "documentation": null
+  },
+  "openSource": false
+}

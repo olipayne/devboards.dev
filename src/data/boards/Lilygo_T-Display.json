@@ -1,0 +1,79 @@
+{
+  "name": "T-Display",
+  "manufacturer": "Lilygo",
+  "releaseDate": "2019-06-26",
+  "price": 8.0,
+  "dimensions": {
+    "length": 51.49,
+    "width": 25.09,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 16,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 13,
+    "analog": 11,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": true,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board?variant=42159376466101",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FjnVLzk3p4Org33lKvyc-j?alt=media&token=1ca3b066-aac8-40a1-9f10-1cf461d24d8c",
+    "purchase": "https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board?variant=42159376466101",
+    "github": "https://github.com/Xinyuan-LilyGO/TTGO-T-Display/tree/master",
+    "documentation": null
+  },
+  "openSource": false
+}

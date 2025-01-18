@@ -6,7 +6,7 @@ export interface FilterState {
   connectivity: string[];
   sensors: string[];
   power: string[];
-  features: string[];
+  display: string[];
   interfaces: string[];
 }
 
@@ -23,9 +23,6 @@ export const FILTER_CATEGORIES = {
       { id: 'RP2040', label: 'RP2040' },
       { id: 'SAMD21', label: 'SAMD21' },
       { id: 'nRF52840', label: 'nRF52840' },
-      { id: 'STM32', label: 'STM32' },
-      { id: 'ATmega328P', label: 'ATmega328P' },
-      { id: 'ATmega2560', label: 'ATmega2560' },
     ],
   },
   usb: {
@@ -46,39 +43,38 @@ export const FILTER_CATEGORIES = {
       { id: 'lora', label: 'LoRa' },
       { id: 'ethernet', label: 'Ethernet' },
       { id: 'zigbee', label: 'Zigbee' },
-      { id: 'can', label: 'CAN' },
+      { id: 'thread', label: 'Thread' },
       { id: 'matter', label: 'Matter' },
+      { id: 'can', label: 'CAN' },
     ],
   },
   sensors: {
     label: 'Sensors',
     options: [
-      { id: 'accelerometer', label: 'Accelerometer' },
-      { id: 'gyroscope', label: 'Gyroscope' },
-      { id: 'temperatureSensor', label: 'Temperature' },
-      { id: 'hallSensor', label: 'Hall Effect' },
-      { id: 'lightSensor', label: 'Light' },
-      { id: 'altitudeSensor', label: 'Altitude' },
-      { id: 'motionSensor', label: 'Motion' },
+      { id: 'temperature', label: 'Temperature' },
+      { id: 'humidity', label: 'Humidity' },
+      { id: 'pressure', label: 'Pressure' },
+      { id: 'imu', label: 'IMU' },
+      { id: 'microphone', label: 'Microphone' },
+      { id: 'camera', label: 'Camera' },
+      { id: 'hall', label: 'Hall Effect' },
     ],
   },
   power: {
     label: 'Power',
     options: [
-      { id: 'batteryPowered', label: 'Battery Powered' },
-      { id: 'liPoCharging', label: 'LiPo Charging' },
-      { id: 'solarCharging', label: 'Solar Charging' },
+      { id: 'battery', label: 'Battery Support' },
+      { id: 'charging', label: 'Battery Charging' },
+      { id: 'monitoring', label: 'Battery Monitoring' },
+      { id: 'solar', label: 'Solar Charging' },
+      { id: 'poe', label: 'Power over Ethernet' },
     ],
   },
-  features: {
-    label: 'Features',
+  display: {
+    label: 'Display',
     options: [
-      { id: 'display', label: 'Display' },
-      { id: 'camera', label: 'Camera' },
-      { id: 'speaker', label: 'Speaker' },
-      { id: 'microphone', label: 'Microphone' },
-      { id: 'sdCard', label: 'SD Card' },
-      { id: 'rtc', label: 'RTC' },
+      { id: 'builtin', label: 'Built-in Display' },
+      { id: 'touch', label: 'Touch Screen' },
     ],
   },
   interfaces: {
@@ -87,56 +83,59 @@ export const FILTER_CATEGORIES = {
       { id: 'i2c', label: 'I2C' },
       { id: 'spi', label: 'SPI' },
       { id: 'uart', label: 'UART' },
-      { id: 'pwm', label: 'PWM' },
-      { id: 'adc', label: 'ADC' },
-      { id: 'dac', label: 'DAC' },
+      { id: 'jtag', label: 'JTAG' },
+      { id: 'qwiic', label: 'Qwiic' },
+      { id: 'grove', label: 'Grove' },
+      { id: 'stemma', label: 'STEMMA' },
     ],
   },
 };
 
-export function filterBoards(boards: Board[], filters: FilterState): Board[] {
-  return boards.filter(board => {
-    // CPU filter
-    if (filters.cpu.length > 0 && !filters.cpu.includes(board.cpuArchitecture)) {
+export function filterBoards(boards: Board[] = [], filters: FilterState): Board[] {
+  if (!Array.isArray(boards)) return [];
+  
+  return boards.filter((board) => {
+    // CPU filter - check if the CPU model includes any of the selected CPU types
+    if (filters.cpu.length > 0 && !filters.cpu.some(cpu => board?.cpu?.model?.toLowerCase().includes(cpu.toLowerCase()))) {
       return false;
     }
 
-    // USB filter
-    if (filters.usb.length > 0 && !filters.usb.includes(board.usbConnectorType)) {
+    // USB filter - exact match on USB type
+    if (filters.usb.length > 0 && !filters.usb.includes(board?.interfaces?.usb?.type)) {
       return false;
     }
 
     // Connectivity filters
-    if (filters.connectivity.length > 0) {
-      if (!filters.connectivity.every(feature => board[feature as keyof Board])) {
+    if (filters.connectivity.length > 0 && board.connectivity) {
+      if (!filters.connectivity.every(feature => board.connectivity?.[feature as keyof typeof board.connectivity])) {
         return false;
       }
     }
 
     // Sensor filters
-    if (filters.sensors.length > 0) {
-      if (!filters.sensors.every(sensor => board[sensor as keyof Board])) {
+    if (filters.sensors.length > 0 && board.sensors) {
+      if (!filters.sensors.every(sensor => board.sensors?.[sensor as keyof typeof board.sensors])) {
         return false;
       }
     }
 
-    // Power filters
-    if (filters.power.length > 0) {
-      if (!filters.power.every(feature => board[feature as keyof Board])) {
+    // Power source filters
+    if (filters.power.length > 0 && board.power) {
+      if (!filters.power.every(source => board.power?.sources?.includes(source))) {
         return false;
       }
     }
 
-    // Feature filters
-    if (filters.features.length > 0) {
-      if (!filters.features.every(feature => board[feature as keyof Board])) {
+    // Display filters
+    if (filters.display.length > 0 && board.display) {
+      if (!filters.display.every(feature => board.display?.[feature as keyof typeof board.display])) {
         return false;
       }
     }
 
     // Interface filters
-    if (filters.interfaces.length > 0) {
-      if (!filters.interfaces.every(feature => board[feature as keyof Board])) {
+    if (filters.interfaces.length > 0 && board.interfaces) {
+      if (!filters.interfaces.every(iface => board.interfaces?.[iface as keyof typeof board.interfaces])) {
         return false;
       }
     }

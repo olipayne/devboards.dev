@@ -1,0 +1,79 @@
+{
+  "name": "ESP32-C6-DevKitC-1-N8",
+  "manufacturer": "Espressif",
+  "releaseDate": "2023-01-04",
+  "price": 9.95,
+  "dimensions": {
+    "length": 58.73,
+    "width": 25.52,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-C6",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 8,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 23,
+    "analog": 7,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": true,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.dfrobot.com/product-2692.html",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FaEgYWKoAnv352I8qn9RKC?alt=media&token=43b80004-f463-4d67-90be-d95748fb266a",
+    "purchase": "https://www.adafruit.com/api/product/5672",
+    "github": null,
+    "documentation": "https://docs.espressif.com/projects/esp-idf/en/latest/esp32c6/get-started/#introduction"
+  },
+  "openSource": true
+}

@@ -1,0 +1,79 @@
+{
+  "name": "ESP32-H2-DevKitM-1",
+  "manufacturer": "Espressif",
+  "releaseDate": "2023-02-23",
+  "price": 10.0,
+  "dimensions": {
+    "length": 54.16,
+    "width": 25.53,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-H2",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 320
+  },
+  "gpio": {
+    "gpio": 19,
+    "analog": 5,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": true,
+    "thread": false,
+    "matter": true,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.mouser.com/ProductDetail/Espressif-Systems/ESP32-H2-DevKitM-1-N4?qs=Jm2GQyTW%2FbglqmLNG8tz4A%3D%3D",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F03pL0iZW_VDCWD--InAZR?alt=media&token=3841fd88-e8a9-4907-a10f-814f5d8688c7",
+    "purchase": "https://www.amazon.com/Espressif-ESP32-H2-DevKitM-1-N4-Development-Board/dp/B0BWM83LMF?crid=1RNZMKR07KPQ9&keywords=ESP32-H2-DevKitM-1+-+4+MB&qid=1704059822&sprefix=esp32-h2-devkitm-1+-+4+mb%2Caps%2C123&sr=8-3&linkCode=ll1&tag=smartbeedes07-20&linkId=fdaad734ed97c6801b5932e49bdec970&language=en_US&ref_=as_li_ss_tl",
+    "github": null,
+    "documentation": "https://docs.espressif.com/projects/espressif-esp-dev-kits/en/latest/esp32h2/esp32-h2-devkitm-1/user_guide.html#getting-started"
+  },
+  "openSource": true
+}

@@ -1,0 +1,79 @@
+{
+  "name": "WT32-ETH01",
+  "manufacturer": "Wireless-Tag",
+  "releaseDate": "2019-10-23",
+  "price": 17.0,
+  "dimensions": {
+    "length": 1.0,
+    "width": 1.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 14,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": true,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "None",
+      "otg": false
+    },
+    "i2c": false,
+    "spi": false,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.digikey.com/en/products/detail/seeed-technology-co.,-ltd/102991455/13572085",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FcoddLVt_MdRv9U3gloGnX?alt=media&token=a41175bd-0a4e-4cea-adf5-7c5366bd0cbd",
+    "purchase": "https://www.seeedstudio.com/Ethernet-module-based-on-ESP32-series-WT32-ETH01-p-4736.html?queryID=a2999e9749e96f397b5ca73681bcfed6&objectID=4736&indexName=bazaar_retailer_products",
+    "github": null,
+    "documentation": "https://files.seeedstudio.com/products/102991455/WT32-ETH01_datasheet_V1.1-%20en.pdf"
+  },
+  "openSource": true
+}

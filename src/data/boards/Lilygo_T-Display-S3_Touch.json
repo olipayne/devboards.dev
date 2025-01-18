@@ -1,0 +1,79 @@
+{
+  "name": "T-Display-S3 (Touch)",
+  "manufacturer": "Lilygo",
+  "releaseDate": "2022-11-06",
+  "price": 21.98,
+  "dimensions": {
+    "length": 62.0,
+    "width": 32.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 16,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 13,
+    "analog": 10,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": true
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/LILYGO-T-Display-S3-ESP32-S3-Development-Soldered/dp/B0BLNKPL25?th=1",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FAFI1O2GKi1lIadQxDJpg0?alt=media&token=be548f0c-dca4-4dec-a077-993dc28b1d98",
+    "purchase": "https://www.lilygo.cc/products/t-display-s3",
+    "github": "https://github.com/Xinyuan-LilyGO/T-Display-S3",
+    "documentation": null
+  },
+  "openSource": true
+}

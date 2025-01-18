@@ -1,0 +1,79 @@
+{
+  "name": "ESP32-S2-Pico LCD",
+  "manufacturer": "WaveShare",
+  "releaseDate": "2022-11-05",
+  "price": 14.0,
+  "dimensions": {
+    "length": 54.0,
+    "width": 21.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S2",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 26,
+    "analog": 3,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": true,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.waveshare.com/esp32-s2.htm?sku=20658",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FVfCpt83iOufWy9MZ7VP3s?alt=media&token=ff09c0be-cd52-4d1b-a890-73583f35c135",
+    "purchase": "https://www.waveshare.com/esp32-s2.htm?sku=20658",
+    "github": null,
+    "documentation": "https://waveshare.com/wiki/ESP32-S2-Pico"
+  },
+  "openSource": true
+}

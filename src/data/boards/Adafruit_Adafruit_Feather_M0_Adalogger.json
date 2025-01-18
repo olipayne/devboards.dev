@@ -1,0 +1,79 @@
+{
+  "name": "Adafruit Feather M0 Adalogger",
+  "manufacturer": "Adafruit",
+  "releaseDate": "2015-09-12",
+  "price": 20.0,
+  "dimensions": {
+    "length": 51.6,
+    "width": 22.8,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ATSAMD21G18",
+    "architecture": null,
+    "frequency": 48
+  },
+  "memory": {
+    "flash": 256,
+    "ram": 32
+  },
+  "gpio": {
+    "gpio": 20,
+    "analog": 10,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": false,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/Adafruit-Feather-M0-Adalogger-ADA2796/dp/B01BMRDBXW?crid=229N4FXL7HQCE&keywords=Adafruit+Feather+M0+Adalogger&qid=1701741009&sprefix=adafruit+feather+m0+adalogger%2Caps%2C217&sr=8-3&linkCode=ll1&tag=smartbeedes07-20&linkId=ff8a830f5fb73f3932227f0c81770d63&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FeW93La110DTM1hUeIWaKU?alt=media&token=930fa478-1678-49fd-9fcd-4f6902e64996",
+    "purchase": "https://www.adafruit.com/product/2796",
+    "github": "https://github.com/adafruit/Adafruit-Feather-M0-Adalogger-PCB",
+    "documentation": "https://learn.adafruit.com/adafruit-feather-m0-adalogger"
+  },
+  "openSource": true
+}

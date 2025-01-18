@@ -1,0 +1,79 @@
+{
+  "name": "LOLIN D1 mini v4",
+  "manufacturer": "Lolin",
+  "releaseDate": "2016-06-08",
+  "price": 3.51,
+  "dimensions": {
+    "length": 34.5,
+    "width": 25.3,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP8266EX",
+    "architecture": null,
+    "frequency": 80
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 11,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.aliexpress.us/item/2251832342786284.html?gatewayAdapt=glo2usa4itemAdapt",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FxvLDhCceheGZJnII-kMfP?alt=media&token=3c9f1c87-5e6d-4cb3-a9ce-154573208047",
+    "purchase": "https://www.aliexpress.us/item/2251832342786284.html?gatewayAdapt=glo2usa4itemAdapt",
+    "github": null,
+    "documentation": "https://www.wemos.cc/en/latest/d1/d1_mini.html"
+  },
+  "openSource": true
+}

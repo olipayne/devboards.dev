@@ -1,0 +1,79 @@
+{
+  "name": "M5Stamp S3",
+  "manufacturer": "M5Stack",
+  "releaseDate": "2022-02-28",
+  "price": 7.5,
+  "dimensions": {
+    "length": 26.0,
+    "width": 18.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 8,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 23,
+    "analog": 15,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://s.click.aliexpress.com/e/_DELOsIl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FQlJBGExSyBuU0rsCZJdjE?alt=media&token=1af51f58-aeb7-4daf-ac6a-2f3b883e5e39",
+    "purchase": "https://shop.m5stack.com/products/m5stamp-esp32s3-module",
+    "github": "https://github.com/m5stack/STAMP-S3/tree/main",
+    "documentation": "https://docs.m5stack.com/en/core/StampS3"
+  },
+  "openSource": true
+}

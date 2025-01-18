@@ -1,0 +1,79 @@
+{
+  "name": "LOLIN S3 Mini",
+  "manufacturer": "Lolin",
+  "releaseDate": "2023-06-29",
+  "price": 2.0,
+  "dimensions": {
+    "length": 34.5,
+    "width": 25.3,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 27,
+    "analog": 12,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.aliexpress.us/w/wholesale-lolin-s3-mini.html?spm=a2g0o.productlist.search.0",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FMjcTo-k0Se6-D0T_YeJKJ?alt=media&token=2306be55-7d35-4113-b102-237c0d2f9a6b",
+    "purchase": "https://www.aliexpress.us/w/wholesale-lolin-s3-mini.html?spm=a2g0o.productlist.search.0",
+    "github": null,
+    "documentation": "https://www.wemos.cc/en/latest/s3/s3_mini.html"
+  },
+  "openSource": false
+}

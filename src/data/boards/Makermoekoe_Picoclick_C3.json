@@ -1,0 +1,79 @@
+{
+  "name": "Picoclick C3",
+  "manufacturer": "Makermoekoe",
+  "releaseDate": "2022-08-21",
+  "price": 32.0,
+  "dimensions": {
+    "length": 21.4,
+    "width": 18.27,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-C3",
+    "architecture": null,
+    "frequency": 160
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 2,
+    "analog": 2,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": false,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": false,
+      "monitoring": true,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.tindie.com/products/makermoekoe/picoclick-c3-iot-button/",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FRvMPC93TdCNLR7dcDf6rM?alt=media&token=a235c0b8-7146-4f02-8683-ca5d91216a1c",
+    "purchase": "https://www.tindie.com/products/makermoekoe/picoclick-c3-iot-button/",
+    "github": "https://github.com/makermoekoe/Picoclick-C3/tree/main",
+    "documentation": "https://makermoekoe.gitbook.io/picoclick-c3/"
+  },
+  "openSource": true
+}

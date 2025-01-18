@@ -1,0 +1,79 @@
+{
+  "name": "Feather ESP32-S2 Reverse TFT",
+  "manufacturer": "Adafruit",
+  "releaseDate": "2021-12-21",
+  "price": 24.95,
+  "dimensions": {
+    "length": 52.0,
+    "width": 23.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S2",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 22,
+    "analog": 15,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": true,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.adafruit.com/product/5345",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2Fy07Q67yaRjlwHkk2tkJJb?alt=media&token=2d296df8-77ed-4214-9c97-6ca5ced182fd",
+    "purchase": "https://www.amazon.com/ESP32-S2-Reverse-TFT-Feather-5345/dp/B0BZZXVD29?crid=2M06ESNNZUWZ9&keywords=Adafruit+ESP32-S2+Reverse+TFT+Feather&qid=1703276952&sprefix=adafruit+esp32-s2+reverse+tft+feather%2Caps%2C209&sr=8-3&linkCode=ll1&tag=smartbeedes07-20&linkId=452299ceaa88be1ba64e5520e5d7a60b&language=en_US&ref_=as_li_ss_tl",
+    "github": "https://github.com/adafruit/Adafruit-ESP32-S2-TFT-Feather-PCB",
+    "documentation": "https://learn.adafruit.com/adafruit-esp32-s2-tft-feather"
+  },
+  "openSource": true
+}

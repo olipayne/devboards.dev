@@ -1,0 +1,79 @@
+{
+  "name": "Waveshare RP2040-One",
+  "manufacturer": "WaveShare",
+  "releaseDate": "2022-11-04",
+  "price": 5.0,
+  "dimensions": {
+    "length": 35.5,
+    "width": 18.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "RP2040",
+    "architecture": null,
+    "frequency": 133
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 264
+  },
+  "gpio": {
+    "gpio": 20,
+    "analog": 4,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": true,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/waveshare-RP2040-One-Raspberry-Microcontroller-MicroPython/dp/B0BLRK359T?crid=8XSLAWKOTVGN&keywords=beetel%2Brp2040%2Bmini&qid=1702237253&sprefix=beetle%2Brp2040%2Bmini%2Caps%2C151&sr=8-3&th=1&linkCode=ll1&tag=smartbeedes07-20&linkId=3e80fd50a74066d6a70a6050b8d2da7a&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FcqqKc0ZyK5JOIxGrTJWKK?alt=media&token=ee9bd5e2-c7d5-47a1-b645-f1cdf4d9463c",
+    "purchase": "https://www.waveshare.com/rp2040-one.htm",
+    "github": null,
+    "documentation": "https://www.waveshare.com/wiki/RP2040-One"
+  },
+  "openSource": true
+}

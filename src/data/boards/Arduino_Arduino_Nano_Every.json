@@ -1,0 +1,79 @@
+{
+  "name": "Arduino Nano Every",
+  "manufacturer": "Arduino",
+  "releaseDate": "2019-05-17",
+  "price": 13.7,
+  "dimensions": {
+    "length": 45.0,
+    "width": 18.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ATMega4809",
+    "architecture": null,
+    "frequency": 16
+  },
+  "memory": {
+    "flash": 48,
+    "ram": 6
+  },
+  "gpio": {
+    "gpio": 22,
+    "analog": 8,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": false
+    },
+    "i2c": false,
+    "spi": false,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/Arduino-Nano-Every-Single-Board/dp/B07VX7MX27?crid=422OC0FS7YBX&keywords=arduino%2Bnano&qid=1702236897&sprefix=arduino%2Bnano%2Caps%2C125&sr=8-4&th=1&linkCode=ll1&tag=smartbeedes07-20&linkId=2d008602340fa46a41c2bc32078a11db&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2Fxy5MTzw9rCjxJEaVX_1Dc?alt=media&token=67f7c077-6cb5-4cef-bf1e-9cd3d214c950",
+    "purchase": "https://store-usa.arduino.cc/products/arduino-nano-every?selectedStore=us",
+    "github": null,
+    "documentation": "https://docs.arduino.cc/hardware/nano-every"
+  },
+  "openSource": true
+}

@@ -1,0 +1,79 @@
+{
+  "name": "Arduino Mega 2560 Rev3",
+  "manufacturer": "Arduino",
+  "releaseDate": "2012-03-17",
+  "price": 48.0,
+  "dimensions": {
+    "length": 101.52,
+    "width": 53.3,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ATmega2560",
+    "architecture": null,
+    "frequency": 16
+  },
+  "memory": {
+    "flash": 256,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 54,
+    "analog": 16,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "None",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://store-usa.arduino.cc/products/arduino-mega-2560-rev3",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FCrbpviIQDgT12rQBzwifs?alt=media&token=e8fdb157-09ab-4e8c-b231-a8f81201fc17",
+    "purchase": "https://www.amazon.com/ARDUINO-MEGA-2560-REV3-A000067/dp/B0046AMGW0?&linkCode=ll1&tag=smartbeedes07-20&linkId=47d9a30fa36116ba0780b8a88927f1d4&language=en_US&ref_=as_li_ss_tl",
+    "github": null,
+    "documentation": "https://docs.arduino.cc/resources/datasheets/A000067-datasheet.pdf"
+  },
+  "openSource": true
+}

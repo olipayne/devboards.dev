@@ -1,0 +1,79 @@
+{
+  "name": "LIFELY AGRUMINO LEMON",
+  "manufacturer": "Lifely",
+  "releaseDate": "2021-02-16",
+  "price": 76.0,
+  "dimensions": {
+    "length": 1.0,
+    "width": 1.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP8266",
+    "architecture": null,
+    "frequency": 80
+  },
+  "memory": {
+    "flash": 2,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 2,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": true,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": true,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.it/lifely-Agrumino-Lemon/dp/B08C5M6PN1?keywords=lifely+agrumino+lemon&qid=1688457150&sprefix=agrumino+lemon,aps,107&sr=8-1&linkCode=sl1&tag=promo0f25-21&linkId=ddc26d6c4cd09cad17c393de2cafb9d1&language=it_IT&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F2dxOcsWXBS2oLCMqs8DzF?alt=media&token=00a4f776-632b-4287-9bfb-8003a3d7858b",
+    "purchase": "https://www.lifely.cc/shop-2/",
+    "github": null,
+    "documentation": "https://www.lifely.cc/wp-content/uploads/2022/07/Manuale-di-configurazione-Agrumino-Ultima-Versione-1-1_compressed.pdf"
+  },
+  "openSource": true
+}

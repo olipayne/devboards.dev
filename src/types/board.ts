@@ -12,125 +12,121 @@ export function isValidUsbConnectorType(type: string): type is UsbConnectorType 
   return Object.values(UsbConnectorType).includes(type as UsbConnectorType);
 }
 
-export interface Board {
-  // Basic Information
-  id: string;
-  name: string;
-  brand: string;
-  imageUrl: string;
-  purchaseUrl?: string;
-  price?: number;
-  releaseDate?: string;
-  
-  // Technical Specifications
-  cpuArchitecture: string;
-  cpuFrequency?: number; // MHz
-  flashSize?: number; // MB
-  ramSize?: number; // MB
-  usbConnectorType: UsbConnectorType;
-  
-  // Connectivity
+export interface Dimensions {
+  length: number;
+  width: number;
+  height: number;
+}
+
+export interface CpuInfo {
+  model: string;
+  architecture: string | null;
+  frequency: number | null; // MHz
+}
+
+export interface MemoryInfo {
+  flash: number; // MB
+  ram: number; // MB
+}
+
+export interface GpioInfo {
+  gpio: number;
+  analog: number | null;
+  pwm: number | null;
+}
+
+export interface ConnectivityInfo {
   wifi: boolean;
   bluetooth: boolean;
   lora: boolean;
   ethernet: boolean;
   zigbee: boolean;
-  threadProtocol: boolean;
+  thread: boolean;
   matter: boolean;
   can: boolean;
-  
-  // Communication Interfaces
+}
+
+export interface UsbInfo {
+  type: UsbConnectorType;
+  otg: boolean;
+}
+
+export interface InterfacesInfo {
+  usb: UsbInfo;
   i2c: boolean;
   spi: boolean;
-  uartPins?: number;
-  gpio?: number;
-  
-  // Power
-  batteryPowered: boolean;
-  batteryConnector: boolean;
-  batteryMonitoring: boolean;
-  liPoCharging: boolean;
-  barrelJack5V: boolean;
-  dualLDOs: boolean;
-  ultraLowPower: boolean;
-  lowPowerDeepSleep: boolean;
-  
-  // USB Features
-  nativeUSB: boolean;
-  pioUSB: boolean;
-  usbHost: boolean;
-  usbDetection: boolean;
-  dualUSB: boolean;
-  hid: boolean;
-  
-  // Sensors
-  accelerometer: boolean;
-  gyroscope: boolean;
-  temperatureSensor: boolean;
-  hallSensor: boolean;
-  altitudeSensor: boolean;
-  lightSensor: boolean;
-  motionSensor: boolean;
-  soilMoisture: boolean;
-  waterLevelSensor: boolean;
-  
-  // Display & Visual
-  display: boolean;
-  screenConnector: boolean;
-  touchScreen: boolean;
-  ledMatrix: boolean;
-  rgbLED: boolean;
-  hdmi: boolean;
-  miniHDMI: boolean;
-  dvi: boolean;
-  
-  // Audio & Media
-  audioJack: boolean;
-  microphone: boolean;
-  speaker: boolean;
-  camera: boolean;
-  cameraconnector: boolean;
-  mipicsiconnector: boolean;
-  lens: boolean;
-  thermalCamera: boolean;
-  
-  // Storage
-  sdCard: boolean;
-  tfCard: boolean;
-  
-  // Additional Features
-  rtc: boolean;
-  imu: boolean;
-  irEmitter: boolean;
-  irReceiver: boolean;
-  relay: boolean;
-  pumpConnector: boolean;
-  button: boolean;
-  onOffSwitch: boolean;
-  
-  // Form Factor
-  breadBoardFriendly: boolean;
-  mountingHoles: boolean;
-  dimensions?: {
-    length: number;
-    width: number;
-    height: number;
-  };
-  
-  // Connectors & Expansion
-  stemmaConnector: boolean;
-  groveConnector: boolean;
-  uextConnector: boolean;
-  uFL: boolean;
-  pci: boolean;
+  uart: boolean;
+  jtag: boolean;
+  qwiic: boolean;
+  grove: boolean;
+  stemma: boolean;
+}
+
+export interface BatteryInfo {
+  supported: boolean;
+  connector: boolean;
+  monitoring: boolean;
+  charging: boolean;
+}
+
+export interface PowerInfo {
+  battery: BatteryInfo;
+  solar: boolean;
   poe: boolean;
+}
+
+export interface DisplayInfo {
+  builtin: boolean;
+  touch: boolean;
+}
+
+export interface SensorsInfo {
+  temperature: boolean;
+  humidity: boolean;
+  pressure: boolean;
+  imu: boolean;
+  microphone: boolean;
+  camera: boolean;
+  hall: boolean;
+}
+
+export interface UrlsInfo {
+  product: string | null;
+  image: string | null;
+  purchase: string | null;
+  github: string | null;
+  documentation: string | null;
+}
+
+export interface Board {
+  // Basic Information
+  id: string;
+  name: string;
+  manufacturer: string;
+  imageUrl: string;
+  purchaseUrl: string | null;
+  releaseDate: string | null;
+  price: number | null;
   
-  // Project Information
+  // Physical Specifications
+  dimensions: Dimensions;
+  
+  // Technical Specifications
+  cpu: CpuInfo;
+  memory: MemoryInfo;
+  gpio: GpioInfo;
+  usbConnectorType: UsbConnectorType | null;
+  
+  // Features
+  connectivity: ConnectivityInfo;
+  interfaces: InterfacesInfo;
+  power: PowerInfo;
+  display: DisplayInfo | null;
+  sensors: SensorsInfo | null;
+  
+  // URLs and Resources
+  urls: UrlsInfo;
+  
+  // Additional Properties
   openSource: boolean;
-  githubUrl?: string;
-  documentationUrl?: string;
-  schematicUrl?: string;
-  
-  // Coin Cell
-  lir2450CoinCell: boolean;
 }

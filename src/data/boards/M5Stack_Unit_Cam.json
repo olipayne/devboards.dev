@@ -1,0 +1,79 @@
+{
+  "name": "Unit Cam",
+  "manufacturer": "M5Stack",
+  "releaseDate": "2021-06-21",
+  "price": 10.95,
+  "dimensions": {
+    "length": 45.0,
+    "width": 20.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 520
+  },
+  "gpio": {
+    "gpio": 2,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "None",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": true,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://s.click.aliexpress.com/e/_DmuxUEN",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FQbztSFZAN8CFXI2iKs0fJ?alt=media&token=dde2276a-7e2c-4c45-ab6c-816afeaaf3a3",
+    "purchase": "https://shop.m5stack.com/products/unit-cam-wi-fi-camera-ov2640",
+    "github": null,
+    "documentation": "https://docs.m5stack.com/en/unit/unit_cam"
+  },
+  "openSource": true
+}

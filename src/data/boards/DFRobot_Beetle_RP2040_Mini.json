@@ -1,0 +1,79 @@
+{
+  "name": "Beetle RP2040 Mini",
+  "manufacturer": "DFRobot",
+  "releaseDate": "2022-09-17",
+  "price": 6.9,
+  "dimensions": {
+    "length": 27.0,
+    "width": 20.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "RP2040",
+    "architecture": null,
+    "frequency": 133
+  },
+  "memory": {
+    "flash": 2,
+    "ram": 264
+  },
+  "gpio": {
+    "gpio": 8,
+    "analog": 2,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.dfrobot.com/product-2615.html",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2Finn7fiQflhg9YAgc4b36y?alt=media&token=d16aeede-1e49-4f4c-a18c-f458b67dbdaf",
+    "purchase": "https://www.dfrobot.com/product-2615.html",
+    "github": null,
+    "documentation": "https://wiki.dfrobot.com/SKU_DFR0959_Beetle_RP2040#target_0"
+  },
+  "openSource": true
+}

@@ -1,0 +1,79 @@
+{
+  "name": "XIAO ESP32S3",
+  "manufacturer": "Seeed Studio",
+  "releaseDate": "2023-05-25",
+  "price": 7.49,
+  "dimensions": {
+    "length": 22.0,
+    "width": 17.75,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 8,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 11,
+    "analog": 9,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": false,
+      "monitoring": false,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/ESP32S3-2-4GHz-Wi-Fi-Dual-core-Supported-Efficiency-Interface/dp/B0BYSB66S5?crid=1CPI17LGM9JA4&keywords=xiaomi+esp32s3&qid=1702237799&sprefix=xiao+esp32s3%2Caps%2C117&sr=8-1&linkCode=ll1&tag=smartbeedes07-20&linkId=3845216122022d766a5134ad4dfdf2e6&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FZTGagaNDXeSfOIrwWVlrl?alt=media&token=c7b1f987-2500-4639-8d78-21376af9959b",
+    "purchase": "https://www.seeedstudio.com/XIAO-ESP32S3-p-5627.html?queryID=f3869eee35014b262c24788ff7836196&objectID=5627&indexName=bazaar_retailer_products",
+    "github": null,
+    "documentation": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+  },
+  "openSource": true
+}

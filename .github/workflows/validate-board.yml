@@ -22,9 +22,6 @@ jobs:
       - name: Validate board data
         run: npm run validate-boards
         
-      - name: Check image URLs
-        run: npm run check-images
-        
       - name: Comment on PR
         uses: actions/github-script@v6
         with:

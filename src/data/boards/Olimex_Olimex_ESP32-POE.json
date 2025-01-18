@@ -1,0 +1,79 @@
+{
+  "name": "Olimex ESP32-POE",
+  "manufacturer": "Olimex",
+  "releaseDate": "2019-08-05",
+  "price": 19.5,
+  "dimensions": {
+    "length": 80.0,
+    "width": 28.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 22,
+    "analog": 12,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": true,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": true
+    },
+    "solar": false,
+    "poe": true
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.digikey.com/en/products/detail/olimex-ltd/ESP32-POE/10258717",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FreKdIp2Xu5OctcCgEk_B7?alt=media&token=a1a6a46a-bb97-4033-914f-31e032f9b6c2",
+    "purchase": "https://www.olimex.com/Products/IoT/ESP32/ESP32-POE/open-source-hardware",
+    "github": "https://github.com/OLIMEX/ESP32-POE",
+    "documentation": "https://github.com/OLIMEX/ESP32-POE/blob/master/DOCUMENTS/ESP32-POE-user-manual.pdf"
+  },
+  "openSource": true
+}

@@ -1,8 +1,25 @@
 import Image from 'next/image';
 import { Board } from '../types/board';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './ui/card';
 import { Badge } from './ui/badge';
-import { ExternalLink, Wifi, Bluetooth, Github, Cpu } from 'lucide-react';
+import { Button } from './ui/button';
+import { 
+  Wifi, 
+  Bluetooth, 
+  Github, 
+  Cpu, 
+  ShoppingCart, 
+  Thermometer,
+  Waves,
+  Camera,
+  Monitor,
+  Battery,
+  Network,
+  Radio,
+  Droplets,
+  Gauge,
+  Move,
+  Mic
+} from 'lucide-react';
 
 interface BoardCardProps {
   board: Board;
@@ -10,93 +27,138 @@ interface BoardCardProps {
 
 export function BoardCard({ board }: BoardCardProps) {
   return (
-    <Card className="group overflow-hidden">
-      <div className="relative h-48 bg-black/5 group-hover:bg-black/10 transition-colors">
+    <div className="relative h-full flex flex-col bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 overflow-hidden">
+      {/* Image container with fixed height */}
+      <div className="relative h-48 bg-gray-200">
         <Image
-          src={board.imageUrl}
+          src={board.urls.image || '/placeholder.png'}
           alt={board.name}
           fill
-          className="object-contain p-4 mix-blend-multiply"
+          className="object-contain"
         />
       </div>
-      
-      <CardHeader className="space-y-2">
-        <div className="flex justify-between items-start">
-          <div>
-            <CardTitle className="text-xl">{board.name}</CardTitle>
-            <CardDescription className="text-sm font-medium">
-              {board.brand}
-            </CardDescription>
+
+      {/* Content container with flex-grow */}
+      <div className="flex flex-col flex-grow p-4">
+        {/* Title and badges section */}
+        <div className="mb-4">
+          <h3 className="text-lg font-semibold mb-2">{board.name}</h3>
+          <p className="text-sm text-gray-600 mb-2">{board.manufacturer}</p>
+          
+          {/* CPU and Memory Info */}
+          <div className="space-y-1 mb-3">
+            <p className="text-sm">
+              <span className="font-medium">CPU:</span> {board.cpu.model} @ {board.cpu.frequency}MHz
+            </p>
+            <p className="text-sm">
+              <span className="font-medium">Flash:</span> {board.memory.flash}MB
+              {board.memory.ram > 0 && <span>, <span className="font-medium">RAM:</span> {board.memory.ram}MB</span>}
+            </p>
           </div>
-          {board.price ? (
-            <div className="text-lg font-semibold">
-              ${board.price.toFixed(2)}
-            </div>
-          ) : (
-            <div className="text-muted-foreground italic">Price not available</div>
+
+          {/* Feature badges */}
+          <div className="flex flex-wrap gap-1">
+            {/* Connectivity badges */}
+            {board.connectivity.wifi && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Wifi className="w-2.5 h-2.5 text-muted-foreground" />WiFi
+              </Badge>
+            )}
+            {board.connectivity.bluetooth && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Bluetooth className="w-2.5 h-2.5 text-muted-foreground" />BLE
+              </Badge>
+            )}
+            {board.connectivity.ethernet && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Network className="w-2.5 h-2.5 text-muted-foreground" />Ethernet
+              </Badge>
+            )}
+            {board.connectivity.lora && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Radio className="w-2.5 h-2.5 text-muted-foreground" />LoRa
+              </Badge>
+            )}
+            {board.connectivity.zigbee && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Radio className="w-2.5 h-2.5 text-muted-foreground" />Zigbee
+              </Badge>
+            )}
+            {board.connectivity.thread && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Radio className="w-2.5 h-2.5 text-muted-foreground" />Thread
+              </Badge>
+            )}
+            
+            {/* Sensor badges */}
+            {board.sensors?.temperature && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Thermometer className="w-2.5 h-2.5 text-muted-foreground" />Temperature
+              </Badge>
+            )}
+            {board.sensors?.humidity && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Droplets className="w-2.5 h-2.5 text-muted-foreground" />Humidity
+              </Badge>
+            )}
+            {board.sensors?.pressure && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Gauge className="w-2.5 h-2.5 text-muted-foreground" />Pressure
+              </Badge>
+            )}
+            {board.sensors?.imu && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Move className="w-2.5 h-2.5 text-muted-foreground" />IMU
+              </Badge>
+            )}
+            {board.sensors?.microphone && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Mic className="w-2.5 h-2.5 text-muted-foreground" />Microphone
+              </Badge>
+            )}
+            {board.sensors?.camera && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Camera className="w-2.5 h-2.5 text-muted-foreground" />Camera
+              </Badge>
+            )}
+            
+            {/* Display badge */}
+            {board.display?.builtin && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Monitor className="w-2.5 h-2.5 text-muted-foreground" />
+                {board.display.touch ? 'Touch Display' : 'Display'}
+              </Badge>
+            )}
+            
+            {/* Power badges */}
+            {board.power.battery.supported && (
+              <Badge variant="secondary" className="flex items-center gap-1">
+                <Battery className="w-2.5 h-2.5 text-muted-foreground" />Battery
+              </Badge>
+            )}
+          </div>
+        </div>
+
+        {/* Links section - pushed to bottom with mt-auto */}
+        <div className="mt-auto pt-4 flex items-center justify-between">
+          {board.urls.purchase && (
+            <Button asChild variant="default" size="sm">
+              <a href={board.urls.purchase} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <ShoppingCart className="w-4 h-4 mr-2" />
+                Buy Now
+              </a>
+            </Button>
+          )}
+          {board.urls.github && (
+            <Button asChild variant="outline" size="sm">
+              <a href={board.urls.github} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <Github className="w-4 h-4 mr-2" />
+                GitHub
+              </a>
+            </Button>
           )}
         </div>
-      </CardHeader>
-      
-      <CardContent>
-       
-        <div className="flex flex-wrap gap-2 mb-4">
-          {board.cpuArchitecture && (
-            <Badge variant="secondary" className="flex items-center gap-1">
-              <Cpu className="w-3 h-3" /> {board.cpuArchitecture}
-            </Badge>
-          )}
-          {board.wifi && (
-            <Badge variant="secondary" className="flex items-center gap-1">
-              <Wifi className="w-3 h-3" /> WiFi
-            </Badge>
-          )}
-          {board.bluetooth && (
-            <Badge variant="secondary" className="flex items-center gap-1">
-              <Bluetooth className="w-3 h-3" /> Bluetooth
-            </Badge>
-          )}
-          {board.openSource && (
-            <Badge variant="secondary" className="flex items-center gap-1">
-              <Github className="w-3 h-3" /> Open Source
-            </Badge>
-          )}
-        </div>
-        
-        <div className="grid grid-cols-2 gap-2 text-sm">
-          <div className="flex flex-col">
-            <span className="text-muted-foreground">CPU Architecture</span>
-            <span className="font-medium">{board.cpuArchitecture}</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-muted-foreground">USB Type</span>
-            <span className="font-medium">{board.usbConnectorType}</span>
-          </div>
-        </div>
-      </CardContent>
-      
-      <CardFooter className="flex justify-end gap-2">
-        {board.githubUrl && (
-          <a
-            href={board.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Github className="w-5 h-5" />
-          </a>
-        )}
-        {board.purchaseUrl && (
-          <a
-            href={board.purchaseUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-          >
-            Buy Now <ExternalLink className="w-4 h-4" />
-          </a>
-        )}
-      </CardFooter>
-    </Card>
+      </div>
+    </div>
   );
 }

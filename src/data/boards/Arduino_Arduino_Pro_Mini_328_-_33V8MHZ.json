@@ -1,0 +1,79 @@
+{
+  "name": "Arduino Pro Mini 328 - 3.3V/8MHZ",
+  "manufacturer": "Arduino",
+  "releaseDate": "2008-11-14",
+  "price": 11.0,
+  "dimensions": {
+    "length": 33.02,
+    "width": 17.78,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ATmega328",
+    "architecture": null,
+    "frequency": 16
+  },
+  "memory": {
+    "flash": 32,
+    "ram": 2
+  },
+  "gpio": {
+    "gpio": 22,
+    "analog": 8,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "None",
+      "otg": false
+    },
+    "i2c": false,
+    "spi": false,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/Arduino-Pro-Mini-328-3-3V/dp/B004G53J6M",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FbpXXCoaIeUHSIzT3Ef6jN?alt=media&token=75b288f3-6b18-4898-9c7a-633384fa2597",
+    "purchase": "https://www.sparkfun.com/products/11114",
+    "github": null,
+    "documentation": "https://docs.arduino.cc/retired/getting-started-guides/ArduinoProMini"
+  },
+  "openSource": true
+}

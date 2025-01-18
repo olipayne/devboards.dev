@@ -1,0 +1,79 @@
+{
+  "name": "XIAO RP2040",
+  "manufacturer": "Seeed Studio",
+  "releaseDate": "2022-06-24",
+  "price": 5.4,
+  "dimensions": {
+    "length": 22.0,
+    "width": 17.75,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "RP2040",
+    "architecture": null,
+    "frequency": 133
+  },
+  "memory": {
+    "flash": 2,
+    "ram": 264
+  },
+  "gpio": {
+    "gpio": 11,
+    "analog": 4,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/Microcontroller-Dual-Core-MicroPython-CircuitPython-Interfaces/dp/B09NNVNW7M?crid=3RF19AFKFOLH6&keywords=XIAO%2Brp2040&qid=1702237762&sprefix=xiao%2Brp2040%2Caps%2C111&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll1&tag=smartbeedes07-20&linkId=9a5482f6b024359629652d10eea3bdf0&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FP5cpkI2hPXYSiq89Mi0vi?alt=media&token=8b73d0e8-26b0-43e3-8a87-d3b7f8e596d7",
+    "purchase": "https://www.seeedstudio.com/XIAO-RP2040-v1-0-p-5026.html",
+    "github": null,
+    "documentation": "https://wiki.seeedstudio.com/XIAO-RP2040/"
+  },
+  "openSource": false
+}

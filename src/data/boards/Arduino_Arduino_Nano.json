@@ -1,0 +1,79 @@
+{
+  "name": "Arduino Nano",
+  "manufacturer": "Arduino",
+  "releaseDate": "2008-11-19",
+  "price": 24.9,
+  "dimensions": {
+    "length": 45.0,
+    "width": 18.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ATmega328P",
+    "architecture": null,
+    "frequency": 16
+  },
+  "memory": {
+    "flash": 32,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 22,
+    "analog": 8,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Mini-USB",
+      "otg": false
+    },
+    "i2c": false,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.mouser.com/ProductDetail/Arduino/A000005?qs=FN83AlR%252Bkj%252B2HN65G4WOuA%3D%3D",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FCuh9IEZFxkeQE0LpPV7Re?alt=media&token=4e183b50-403e-4e38-b32a-b2ad4c3404e3",
+    "purchase": "https://store-usa.arduino.cc/products/arduino-nano",
+    "github": null,
+    "documentation": "https://docs.arduino.cc/hardware/nano"
+  },
+  "openSource": true
+}

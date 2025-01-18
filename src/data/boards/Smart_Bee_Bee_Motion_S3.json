@@ -1,0 +1,79 @@
+{
+  "name": "Bee Motion S3",
+  "manufacturer": "Smart Bee",
+  "releaseDate": "2023-02-11",
+  "price": 29.99,
+  "dimensions": {
+    "length": 61.06,
+    "width": 23.9,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 8,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 18,
+    "analog": 11,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.lectronz.com/products/bee-motion-s3-esp32-pir-motion-sensor",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F3HZ43jOH92Z2jIuM5Lj_3?alt=media&token=ecb4fa7d-ae5b-4f82-96c4-72f02eb53168",
+    "purchase": "https://www.tindie.com/products/smartbee/bee-motion-s3-esp32-pir-motion-sensor/",
+    "github": "https://github.com/strid3r21/BeeMotionS3",
+    "documentation": null
+  },
+  "openSource": true
+}

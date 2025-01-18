@@ -1,0 +1,79 @@
+{
+  "name": "ATOM Echo",
+  "manufacturer": "M5Stack",
+  "releaseDate": "2020-05-01",
+  "price": 13.5,
+  "dimensions": {
+    "length": 24.0,
+    "width": 24.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 4,
+    "analog": 3,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": false,
+    "spi": false,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": true,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": true,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://s.click.aliexpress.com/e/_DDQYk4Z",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F9F-n-ucem9gEcy9xcxPgG?alt=media&token=0570878a-7381-465b-a6e2-56eab2e2cae3",
+    "purchase": "https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit",
+    "github": "https://github.com/m5stack/ATOM-ECHO",
+    "documentation": "https://docs.m5stack.com/en/atom/atomecho"
+  },
+  "openSource": false
+}

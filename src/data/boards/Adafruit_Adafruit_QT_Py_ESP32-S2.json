@@ -1,0 +1,79 @@
+{
+  "name": "Adafruit QT Py ESP32-S2",
+  "manufacturer": "Adafruit",
+  "releaseDate": "2021-12-20",
+  "price": 12.5,
+  "dimensions": {
+    "length": 21.8,
+    "width": 17.9,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S2",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 11,
+    "analog": 8,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.microcenter.com/product/646717/adafruit-industries-qt-py-esp32-s2-wifi-dev-board-with-stemma-qt",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F5GnNS-olA0jzh0EEhkYCa?alt=media&token=336e81fd-0c55-4529-8b01-60bd5b42b02d",
+    "purchase": "https://www.adafruit.com/product/5325",
+    "github": "https://github.com/adafruit/Adafruit-QT-Py-ESP32-S2-PCB",
+    "documentation": "https://learn.adafruit.com/adafruit-qt-py-esp32-s2/overview"
+  },
+  "openSource": true
+}

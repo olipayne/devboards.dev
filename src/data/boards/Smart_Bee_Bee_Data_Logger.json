@@ -1,0 +1,79 @@
+{
+  "name": "Bee Data Logger",
+  "manufacturer": "Smart Bee",
+  "releaseDate": "2023-08-26",
+  "price": 29.99,
+  "dimensions": {
+    "length": 54.79,
+    "width": 24.18,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 8,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 13,
+    "analog": 7,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.lectronz.com/products/esp32-data-logger",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FCWgTcmJo0SjNE9sLkN0lz?alt=media&token=6b874f9f-a612-46e6-b473-dc2e2ab89d4d",
+    "purchase": "https://www.tindie.com/products/smartbee/esp32-data-logger-wrtc-sd/",
+    "github": "https://github.com/strid3r21/Bee-Data-Logger",
+    "documentation": null
+  },
+  "openSource": true
+}
