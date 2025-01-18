@@ -34,10 +34,11 @@ export function ClientPage({ boards }: ClientPageProps) {
           <ModeToggle />
         </div>
         <div className="flex flex-col lg:flex-row gap-6">
-          <aside className="w-full lg:w-64">
+          <aside className="w-full lg:w-72">
             <FilterPanel
               filters={filters}
               setFilters={setFilters}
+              boards={boards}
             />
           </aside>
           <main className="flex-1">

@@ -3,14 +3,37 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { X, Check } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { 
+  X, 
+  Check, 
+  ChevronDown, 
+  ChevronRight, 
+  Search,
+  Square,
+  Filter
+} from "lucide-react";
+import { 
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { 
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import { FilterState } from "@/utils/filters";
 import { UsbConnectorType } from "@/types/board";
+import { useState, useMemo } from "react";
 
 interface FilterPanelProps {
   filters: FilterState;
   setFilters: (filters: FilterState) => void;
   onReset?: () => void;
+  boards: any[]; // Add boards prop to calculate counts
 }
 
 interface FilterOption {
@@ -104,7 +127,15 @@ const FILTER_CATEGORIES: FilterConfig = {
   },
 };
 
-export function FilterPanel({ filters, setFilters, onReset }: FilterPanelProps) {
+export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPanelProps) {
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>(
+    Object.keys(FILTER_CATEGORIES).reduce((acc, category) => ({
+      ...acc,
+      [category]: false
+    }), {})
+  );
+  const [filterSearch, setFilterSearch] = useState("");
+
   const handleFilterClick = (category: string, id: string) => {
     setFilters({
       ...filters,
@@ -112,6 +143,57 @@ export function FilterPanel({ filters, setFilters, onReset }: FilterPanelProps) 
         ? filters[category as keyof FilterState]?.filter((item) => item !== id)
         : [...(filters[category as keyof FilterState] || []), id],
     });
+  };
+
+  const toggleCategory = (category: string) => {
+    setExpandedCategories(prev => ({
+      ...prev,
+      [category]: !prev[category]
+    }));
+  };
+
+  const clearCategory = (category: string) => {
+    setFilters({
+      ...filters,
+      [category]: []
+    });
+  };
+
+  const getFilterCount = (category: string, optionId: string): number => {
+    // Create a new filter state with just this option selected
+    const testFilters = {
+      ...Object.keys(filters).reduce((acc, key) => ({ ...acc, [key]: [] }), {}),
+      [category]: [optionId]
+    };
+    
+    // Count how many boards would match with just this filter
+    return boards.filter(board => {
+      if (category === 'cpu') {
+        return board?.cpu?.model?.toLowerCase().includes(optionId.toLowerCase());
+      }
+      if (category === 'usb') {
+        return board?.interfaces?.usb?.type === optionId;
+      }
+      if (category === 'connectivity') {
+        return board?.connectivity?.[optionId];
+      }
+      if (category === 'sensors') {
+        return board?.sensors?.[optionId];
+      }
+      if (category === 'power') {
+        if (optionId === 'battery') return board?.power?.battery?.supported;
+        if (optionId === 'charging') return board?.power?.battery?.charging;
+        if (optionId === 'monitoring') return board?.power?.battery?.monitoring;
+        return board?.power?.[optionId];
+      }
+      if (category === 'display') {
+        return board?.display?.[optionId];
+      }
+      if (category === 'interfaces') {
+        return board?.interfaces?.[optionId];
+      }
+      return false;
+    }).length;
   };
 
   const resetFilters = () => {
@@ -142,13 +224,20 @@ export function FilterPanel({ filters, setFilters, onReset }: FilterPanelProps) 
   };
 
   const activeFilters = getActiveFilters();
+  const filteredCategories = Object.entries(FILTER_CATEGORIES).filter(([_, { label, options }]) =>
+    label.toLowerCase().includes(filterSearch.toLowerCase()) ||
+    options.some(opt => opt.label.toLowerCase().includes(filterSearch.toLowerCase()))
+  );
 
   return (
-    <div className="w-full lg:w-64 shrink-0">
+    <div className="w-full lg:w-72 shrink-0">
       {/* Header */}
-      <div className="pb-4">
+      <div className="pb-4 space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-medium text-muted-foreground">Filters</h2>
+          <div className="flex items-center gap-2">
+            <Filter className="w-4 h-4" />
+            <h2 className="font-medium">Filters</h2>
+          </div>
           {activeFilters.length > 0 && (
             <Button
               variant="ghost"
@@ -159,6 +248,17 @@ export function FilterPanel({ filters, setFilters, onReset }: FilterPanelProps) 
               Clear all
             </Button>
           )}
+        </div>
+
+        {/* Search Filters */}
+        <div className="relative">
+          <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+          <Input
+            placeholder="Search filters..."
+            value={filterSearch}
+            onChange={(e) => setFilterSearch(e.target.value)}
+            className="pl-8"
+          />
         </div>
 
         {/* Active Filters */}
@@ -186,44 +286,111 @@ export function FilterPanel({ filters, setFilters, onReset }: FilterPanelProps) 
 
       {/* Filter Categories */}
       <ScrollArea className="h-[calc(100vh-16rem)]">
-        <div className="space-y-6 pr-4">
-          {Object.entries(FILTER_CATEGORIES).map(([category, { label, options }]) => (
-            <div key={category} className="space-y-3">
-              <h3 className="text-sm font-medium" id={`${category}-heading`}>
-                {label}
-              </h3>
-              <div 
-                className="flex flex-wrap gap-1.5" 
-                role="group" 
-                aria-labelledby={`${category}-heading`}
+        <div className="space-y-4 pr-4">
+          {filteredCategories.map(([category, { label, options }]) => {
+            const selectedCount = filters[category as keyof FilterState]?.length || 0;
+            const totalCount = options.length;
+            
+            return (
+              <Collapsible
+                key={category}
+                open={expandedCategories[category]}
+                onOpenChange={() => toggleCategory(category)}
+                className="space-y-2"
               >
-                {options.map((option) => {
-                  const isSelected = filters[category as keyof FilterState]?.includes(option.id);
-                  return (
-                    <button
-                      key={option.id}
-                      onClick={() => handleFilterClick(category, option.id)}
-                      className={cn(
-                        "inline-flex items-center h-7 px-2.5 rounded-full text-sm font-medium transition-all shrink-0",
-                        "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
-                        "disabled:opacity-50 disabled:cursor-not-allowed",
-                        isSelected
-                          ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                          : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                      )}
-                      role="checkbox"
-                      aria-checked={isSelected}
-                    >
-                      {isSelected && (
-                        <Check className="w-4 h-4 mr-1.5 shrink-0" aria-hidden="true" />
-                      )}
-                      <span className="truncate">{option.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+                <div className="flex items-center justify-between">
+                  <CollapsibleTrigger className="flex items-center gap-2 hover:opacity-80">
+                    {expandedCategories[category] ? (
+                      <ChevronDown className="h-4 w-4" />
+                    ) : (
+                      <ChevronRight className="h-4 w-4" />
+                    )}
+                    <h3 className="text-sm font-medium" id={`${category}-heading`}>
+                      {label}
+                    </h3>
+                    {selectedCount > 0 && (
+                      <Badge variant="secondary" className="ml-2">
+                        {selectedCount}/{totalCount}
+                      </Badge>
+                    )}
+                  </CollapsibleTrigger>
+                  
+                  <div className="flex items-center gap-1">
+                    {selectedCount > 0 && (
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="h-8 w-8 p-0"
+                              onClick={() => clearCategory(category)}
+                            >
+                              <Square className="h-4 w-4" />
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent>Clear Selection</TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    )}
+                  </div>
+                </div>
+
+                <CollapsibleContent>
+                  <div 
+                    className="flex flex-wrap gap-1.5 pl-6" 
+                    role="group" 
+                    aria-labelledby={`${category}-heading`}
+                  >
+                    {options.filter(option => 
+                      option.label.toLowerCase().includes(filterSearch.toLowerCase())
+                    ).map((option) => {
+                      const isSelected = filters[category as keyof FilterState]?.includes(option.id);
+                      const count = getFilterCount(category, option.id);
+                      
+                      return (
+                        <TooltipProvider key={option.id}>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <button
+                                onClick={() => handleFilterClick(category, option.id)}
+                                className={cn(
+                                  "inline-flex items-center h-7 px-2.5 rounded-full text-sm font-medium transition-all shrink-0",
+                                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                                  "disabled:opacity-50 disabled:cursor-not-allowed",
+                                  isSelected
+                                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                                )}
+                                role="checkbox"
+                                aria-checked={isSelected}
+                              >
+                                {isSelected && (
+                                  <Check className="w-4 h-4 mr-1.5 shrink-0" aria-hidden="true" />
+                                )}
+                                <span className="truncate">{option.label}</span>
+                                {count > 0 && (
+                                  <Badge 
+                                    variant={isSelected ? "secondary" : "outline"} 
+                                    className="ml-1.5 px-1"
+                                  >
+                                    {count}
+                                  </Badge>
+                                )}
+                              </button>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>{count} board{count !== 1 ? 's' : ''} available</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      );
+                    })}
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            );
+          })}
         </div>
       </ScrollArea>
     </div>
