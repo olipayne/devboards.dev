@@ -7,6 +7,7 @@ import { Board } from "@/types/board";
 import { FilterState } from "@/utils/filters";
 import { ModeToggle } from "@/components/mode-toggle";
 import { CircuitBoard } from "lucide-react";
+import { ContributeButton } from "@/components/ContributeButton";
 
 interface ClientPageProps {
   boards: Board[];
@@ -31,7 +32,10 @@ export function ClientPage({ boards }: ClientPageProps) {
             <CircuitBoard className="w-6 h-6 text-primary" />
             <h1 className="text-lg font-medium">devboards.dev</h1>
           </div>
-          <ModeToggle />
+          <div className="flex items-center gap-2">
+            <ContributeButton />
+            <ModeToggle />
+          </div>
         </div>
         <div className="flex flex-col lg:flex-row gap-6">
           <aside className="w-full lg:w-72">

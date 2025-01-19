@@ -1,0 +1,79 @@
+{
+  "name": "",
+  "manufacturer": "",
+  "releaseDate": "YYYY-MM-DD",
+  "price": null,
+  "dimensions": {
+    "length": null,
+    "width": null,
+    "height": null
+  },
+  "cpu": {
+    "model": "",
+    "architecture": null,
+    "frequency": null
+  },
+  "memory": {
+    "flash": null,
+    "ram": null
+  },
+  "gpio": {
+    "gpio": null,
+    "analog": null,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "",
+      "otg": false
+    },
+    "i2c": false,
+    "spi": false,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "",
+    "image": "",
+    "purchase": "",
+    "github": "",
+    "documentation": ""
+  },
+  "openSource": false
+}
