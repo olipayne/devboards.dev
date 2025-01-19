@@ -1,0 +1,79 @@
+{
+  "name": "Pico RP2040",
+  "manufacturer": "Raspberry Pi",
+  "releaseDate": "2021-01-21",
+  "price": 4.0,
+  "dimensions": {
+    "length": 51.0,
+    "width": 21.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "RP2040",
+    "architecture": null,
+    "frequency": 133
+  },
+  "memory": {
+    "flash": 2,
+    "ram": 264
+  },
+  "gpio": {
+    "gpio": 25,
+    "analog": 3,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Micro-USB",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.adafruit.com/product/4864",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FsYJIIXgeRnxW2KV_dKkq0?alt=media&token=b11d64b7-77b4-496f-b298-e2d14c291b58",
+    "purchase": "https://www.amazon.com/Raspberry-RP2040-microcontroller-Dual-core-Processor-1pc/dp/B0BK9CTMSV?crid=2KLG1OOXJ0NBG&keywords=raspberry+pi+pico&qid=1704145342&sprefix=raspberry+pi+pico%2Caps%2C140&sr=8-5&linkCode=ll1&tag=smartbeedes07-20&linkId=05822982faa95a517d9787bd8b644284&language=en_US&ref_=as_li_ss_tl",
+    "github": null,
+    "documentation": "https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf?_gl=1*14sci8u*_ga*NDIwNjI5OTYuMTcwNDEyNjEzMA..*_ga_22FD70LWDS*MTcwNDE0NTIzMi4xLjEuMTcwNDE0NTI1Ny4wLjAuMA.."
+  },
+  "openSource": true
+}

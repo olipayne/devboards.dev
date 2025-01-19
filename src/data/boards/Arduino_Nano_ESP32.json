@@ -1,0 +1,79 @@
+{
+  "name": "Nano ESP32",
+  "manufacturer": "Arduino",
+  "releaseDate": "2023-07-11",
+  "price": 20.0,
+  "dimensions": {
+    "length": 45.0,
+    "width": 18.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S3",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 16,
+    "ram": 512
+  },
+  "gpio": {
+    "gpio": 14,
+    "analog": 8,
+    "pwm": 5
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": true,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.amazon.com/Arduino-ABX00092-Bluetooth-MicroPython-Compatible/dp/B0C947C9QS?crid=2O05AOAORO5X6&keywords=arduino+nano+esp32&qid=1702237012&sprefix=arduino+nano+esp32%2Caps%2C117&sr=8-2&linkCode=ll1&tag=smartbeedes07-20&linkId=bc0580cfc200c80c863a96541bd2e960&language=en_US&ref_=as_li_ss_tl",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FdxQYkQlYTol3lC2vbkb61?alt=media&token=c70c058d-2770-407e-a12f-132e328e6039",
+    "purchase": "https://store-usa.arduino.cc/collections/boards-modules/products/nano-esp32",
+    "github": null,
+    "documentation": "https://docs.arduino.cc/resources/datasheets/ABX00083-datasheet.pdf"
+  },
+  "openSource": true
+}

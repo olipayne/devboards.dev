@@ -1,0 +1,79 @@
+{
+  "name": "Qwiic Pro Micro",
+  "manufacturer": "Sparkfun",
+  "releaseDate": "2020-01-08",
+  "price": 21.5,
+  "dimensions": {
+    "length": 33.02,
+    "width": 17.78,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ATmega32U4",
+    "architecture": null,
+    "frequency": 16
+  },
+  "memory": {
+    "flash": 32,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 18,
+    "analog": 14,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.sparkfun.com/products/15795",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FRXgRJ9-_jjUNazNFv05A_?alt=media&token=861e29de-0e86-4bf9-a02d-c88affa95166",
+    "purchase": "https://www.sparkfun.com/products/15795",
+    "github": "https://github.com/sparkfun/Pro_Micro",
+    "documentation": "https://learn.sparkfun.com/tutorials/qwiic-pro-micro-usb-c-atmega32u4-hookup-guide?_gl=1*1p3d1sy*_ga*NzQwMTg4OTExLjE2OTAzMzM1MDg.*_ga_T369JS7J9N*MTcwMDQxMDY3My4zMS4xLjE3MDA0MTE5NzQuMzAuMC4w"
+  },
+  "openSource": true
+}

@@ -1,0 +1,79 @@
+{
+  "name": "ESP32 Feather V2",
+  "manufacturer": "Adafruit",
+  "releaseDate": "2020-02-11",
+  "price": 19.95,
+  "dimensions": {
+    "length": 52.3,
+    "width": 22.8,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 8,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 21,
+    "analog": 14,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": true
+  },
+  "urls": {
+    "product": "https://www.adafruit.com/product/5400",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FvP5eY_-2Ps0_PtMV3Wo7v?alt=media&token=04627116-b9de-476b-8f37-ff2689224411",
+    "purchase": "https://www.amazon.com/ESP32-Feather-V2-w-FL-Antenna/dp/B0CHT8VTPS?crid=2SEDYBEH61WSN&keywords=Adafruit+ESP32+Feather+V2&qid=1703274782&sprefix=adafruit+esp32+feather+v2%2Caps%2C222&sr=8-4&linkCode=ll1&tag=smartbeedes07-20&linkId=1f2d72ace69004ac119f6f390ecbcebe&language=en_US&ref_=as_li_ss_tl",
+    "github": null,
+    "documentation": "https://learn.adafruit.com/adafruit-esp32-feather-v2/overview"
+  },
+  "openSource": true
+}

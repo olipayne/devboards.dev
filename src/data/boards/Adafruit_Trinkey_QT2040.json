@@ -1,0 +1,79 @@
+{
+  "name": "Trinkey QT2040",
+  "manufacturer": "Adafruit",
+  "releaseDate": "2021-05-27",
+  "price": 7.95,
+  "dimensions": {
+    "length": 38.2,
+    "width": 17.7,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "RP2040",
+    "architecture": null,
+    "frequency": 133
+  },
+  "memory": {
+    "flash": 8,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 2,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.adafruit.com/product/5056",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FIVTFdzNBY-kH17TYDB9VE?alt=media&token=3a5e8763-ffa7-4ce6-8b93-19b12369035e",
+    "purchase": "https://www.adafruit.com/product/5056",
+    "github": "https://github.com/adafruit/Adafruit-Trinkey-QT2040-PCB",
+    "documentation": "https://learn.adafruit.com/adafruit-trinkey-qt2040/overview"
+  },
+  "openSource": true
+}

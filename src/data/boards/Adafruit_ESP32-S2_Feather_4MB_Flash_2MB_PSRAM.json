@@ -1,0 +1,79 @@
+{
+  "name": "ESP32-S2 Feather 4MB Flash 2MB PSRAM",
+  "manufacturer": "Adafruit",
+  "releaseDate": "2021-11-17",
+  "price": 17.5,
+  "dimensions": {
+    "length": 52.4,
+    "width": 22.8,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-S2",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 22,
+    "analog": 17,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": true
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": true
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": true,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.adafruit.com/product/5000",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2Fu52aBXcsaC3FSOjUOQ75Q?alt=media&token=1859cc84-724f-49d1-9a7b-9c269bb82bdf",
+    "purchase": "https://www.amazon.com/ESP32-S2-Feather-PSRAM-Stemma-Adafruit/dp/B09MBLN5V7?crid=1ZOXOVXGZS94C&keywords=Adafruit+ESP32-S3+Feather+with+STEMMA+QT+%2F+Qwiic+-+8MB+Flash+No+PSRAM&qid=1703275776&sprefix=adafruit+esp32-s3+feather+with+stemma+qt+%2F+qwiic+-+8mb+flash+no+psram%2Caps%2C179&sr=8-1&linkCode=ll1&tag=smartbeedes07-20&linkId=7af858c35a38c3919b72a88556f68d0c&language=en_US&ref_=as_li_ss_tl",
+    "github": null,
+    "documentation": "https://learn.adafruit.com/adafruit-esp32-s2-feather/overview"
+  },
+  "openSource": true
+}

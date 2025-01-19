@@ -1,0 +1,79 @@
+{
+  "name": "T-Relay 4",
+  "manufacturer": "Lilygo",
+  "releaseDate": "2022-04-14",
+  "price": 10.0,
+  "dimensions": {
+    "length": 91.0,
+    "width": 85.0,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32",
+    "architecture": null,
+    "frequency": 240
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 0
+  },
+  "gpio": {
+    "gpio": 16,
+    "analog": 1,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": false,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.lilygo.cc/products/t-relay?variant=42275965927605",
+    "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F_lMUqSR4E6o2BIGwwRQ3K?alt=media&token=cc6b644e-3c95-44c0-9a51-045225043f38",
+    "purchase": "https://www.lilygo.cc/products/t-relay?variant=42275965927605",
+    "github": "https://github.com/Xinyuan-LilyGO/LilyGo-T-Relay/tree/main",
+    "documentation": null
+  },
+  "openSource": true
+}
