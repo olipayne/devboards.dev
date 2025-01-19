@@ -1,5 +1,5 @@
 {
-  "name": "PJRC Teensy 4.1",
+  "name": "Teensy 4.1",
   "manufacturer": "PJRC",
   "releaseDate": "2020-05-11",
   "price": 31.5,
@@ -11,7 +11,7 @@
   "cpu": {
     "model": "ARM",
     "architecture": null,
-    "frequency": 100
+    "frequency": 600
   },
   "memory": {
     "flash": 8,
