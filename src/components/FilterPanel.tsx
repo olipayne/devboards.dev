@@ -284,7 +284,7 @@ export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPane
                                   onClick={() => handleFilterClick(category, option.id)}
                                   className={cn(
                                     "inline-flex items-center h-7 px-2.5 rounded-full text-sm font-medium transition-all shrink-0",
-                                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+                                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary",
                                     "disabled:opacity-50 disabled:cursor-not-allowed",
                                     isSelected
                                       ? "bg-primary text-primary-foreground hover:bg-primary/90"
