@@ -27,7 +27,7 @@ jobs:
         run: npm run validate-boards
         
       - name: Comment on PR
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
