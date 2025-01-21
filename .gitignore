@@ -44,3 +44,4 @@ node_modules
 # db
 raw.json
 migrate.py
+validation-results.json

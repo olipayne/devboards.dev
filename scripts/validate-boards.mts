@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from 'fs';
+import { readFileSync, readdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -28,7 +28,7 @@ async function validateBoards(): Promise<ValidationResult> {
     errors: [],
   };
 
-  const boardFiles = readdirSync(BOARDS_DIR).filter(file => file.endsWith('.json'));
+  const boardFiles = readdirSync(BOARDS_DIR).filter(file => file.endsWith('.json') && file !== 'template.json');
   console.log(`Found ${boardFiles.length} board files to validate`);
 
   for (const file of boardFiles) {
@@ -84,6 +84,9 @@ async function validateBoards(): Promise<ValidationResult> {
 }
 
 validateBoards().then(result => {
+  // Write results to file
+  writeFileSync('validation-results.json', JSON.stringify(result, null, 2));
+
   if (!result.valid) {
     console.error('\nValidation failed with the following errors:');
     result.errors.forEach(error => console.error(`- ${error}`));
