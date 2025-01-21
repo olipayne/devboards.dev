@@ -28,7 +28,7 @@ async function validateBoards(): Promise<ValidationResult> {
     errors: [],
   };
 
-  const boardFiles = readdirSync(BOARDS_DIR).filter(file => file.endsWith('.json'));
+  const boardFiles = readdirSync(BOARDS_DIR).filter(file => file.endsWith('.json') && file !== 'template.json');
   console.log(`Found ${boardFiles.length} board files to validate`);
 
   for (const file of boardFiles) {
