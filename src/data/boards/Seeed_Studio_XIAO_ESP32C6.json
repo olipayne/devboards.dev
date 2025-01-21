@@ -1,0 +1,79 @@
+{
+  "name": "XIAO ESP32C6",
+  "manufacturer": "Seeed Studio",
+  "releaseDate": "2022-08-09",
+  "price": 4.99,
+  "dimensions": {
+    "length": 22.0,
+    "width": 17.75,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "ESP32-C6",
+    "architecture": null,
+    "frequency": 160
+  },
+  "memory": {
+    "flash": 4,
+    "ram": 400
+  },
+  "gpio": {
+    "gpio": 11,
+    "analog": 4,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": true,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": true,
+    "thread": true,
+    "matter": true,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": true,
+      "connector": true,
+      "monitoring": false,
+      "charging": true
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32C6-p-5884.html",
+    "image": "https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32C6-p-5884.html?",
+    "purchase": "https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32C6-p-5884.html",
+    "github": null,
+    "documentation": null
+  },
+  "openSource": true
+}
