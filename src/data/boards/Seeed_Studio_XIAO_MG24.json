@@ -1,0 +1,79 @@
+{
+  "name": "XIAO MG24",
+  "manufacturer": "Seeed Studio",
+  "releaseDate": "2024-09-15",
+  "price": 5.4,
+  "dimensions": {
+    "length": 22.0,
+    "width": 17.75,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "EFR32MG24",
+    "architecture": null,
+    "frequency": 78
+  },
+  "memory": {
+    "flash": 2,
+    "ram": 520
+  },
+  "gpio": {
+    "gpio": 22,
+    "analog": 11,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": true,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": true,
+    "matter": true,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.seeedstudio.com/Seeed-Studio-XIAO-MG24-p-6247.html",
+    "image": "https://www.seeedstudio.com/blog/wp-content/uploads/2024/11/XIAO-MG24-1536x1256.jpg",
+    "purchase": "https://www.seeedstudio.com/Seeed-Studio-XIAO-MG24-p-6247.html",
+    "github": null,
+    "documentation": "https://wiki.seeedstudio.com/xiao_mg24_getting_started/"
+  },
+  "openSource": false
+}
