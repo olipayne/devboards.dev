@@ -1,0 +1,79 @@
+{
+  "name": "XIAO RA4M1",
+  "manufacturer": "Seeed Studio",
+  "releaseDate": "2024-09-15",
+  "price": 5.4,
+  "dimensions": {
+    "length": 22.0,
+    "width": 17.75,
+    "height": 1.0
+  },
+  "cpu": {
+    "model": "RA4M1",
+    "architecture": null,
+    "frequency": 150
+  },
+  "memory": {
+    "flash": 2,
+    "ram": 520
+  },
+  "gpio": {
+    "gpio": 19,
+    "analog": 4,
+    "pwm": null
+  },
+  "connectivity": {
+    "wifi": false,
+    "bluetooth": false,
+    "lora": false,
+    "ethernet": false,
+    "zigbee": false,
+    "thread": false,
+    "matter": false,
+    "can": false
+  },
+  "interfaces": {
+    "usb": {
+      "type": "Type-C",
+      "otg": false
+    },
+    "i2c": true,
+    "spi": true,
+    "uart": false,
+    "jtag": false,
+    "qwiic": false,
+    "grove": false,
+    "stemma": false
+  },
+  "power": {
+    "battery": {
+      "supported": false,
+      "connector": true,
+      "monitoring": false,
+      "charging": false
+    },
+    "solar": false,
+    "poe": false
+  },
+  "display": {
+    "builtin": false,
+    "touch": false
+  },
+  "sensors": {
+    "temperature": false,
+    "humidity": false,
+    "pressure": false,
+    "imu": false,
+    "microphone": false,
+    "camera": false,
+    "hall": false
+  },
+  "urls": {
+    "product": "https://www.seeedstudio.com/Seeed-XIAO-RA4M1-p-5943.html",
+    "image": "https://www.seeedstudio.com/blog/wp-content/uploads/2024/08/XIAO-RA4M1-1536x1258.png",
+    "purchase": "https://www.seeedstudio.com/Seeed-XIAO-RA4M1-p-5943.html",
+    "github": null,
+    "documentation": "https://wiki.seeedstudio.com/getting_started_xiao_ra4m1/"
+  },
+  "openSource": false
+}
