@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@types/node": "^20.17.14",
+    "@types/node": "^22.0.0",
     "@types/node-fetch": "^2.6.10",
     "@types/react": "^19",
     "@types/react-dom": "^19",
