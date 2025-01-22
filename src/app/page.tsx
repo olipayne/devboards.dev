@@ -2,7 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import { Board } from '../types/board';
 import Script from 'next/script';
-import { ClientPage } from '@/components/ClientPage';
+import { ClientPage, BoardCard } from '@/components/ClientPage';
+import Link from 'next/link';
+import { createBoardSlug } from '@/utils/slugs';
 
 function getBoards(): Board[] {
   const boardsDir = path.join(process.cwd(), 'src', 'data', 'boards');
@@ -54,7 +56,19 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <ClientPage boards={boards} />
+      <ClientPage showFilter={true}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {boards.map((board) => (
+            <Link
+              key={`${board.manufacturer}-${board.name}`}
+              href={`/board/${createBoardSlug(board.manufacturer, board.name)}`}
+              className="group"
+            >
+              <BoardCard board={board} />
+            </Link>
+          ))}
+        </div>
+      </ClientPage>
     </>
   );
 }

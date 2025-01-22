@@ -1,333 +1,194 @@
 'use client';
 
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
+import { useState } from 'react';
+import { FilterState } from '@/utils/filters';
+import { filterOptions } from '@/utils/filterOptions';
 import { 
-  X, 
-  Check, 
+  Card, 
+  CardHeader, 
+  CardTitle, 
+  CardContent 
+} from "@/components/ui/card";
+import { 
   ChevronDown, 
   ChevronRight, 
   Search,
-  Square,
-  Filter
 } from "lucide-react";
 import { 
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { 
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { 
-  FilterState,
-  FilterConfig,
-  generateFilterOptions
-} from "@/utils/filters";
-import { Board } from "@/types/board"; 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 interface FilterPanelProps {
-  filters: FilterState;
-  setFilters: (filters: FilterState) => void;
-  onReset?: () => void;
-  boards: Board[];
+  filterState: FilterState;
+  onFilterChange: (newState: FilterState) => void;
 }
 
-export function FilterPanel({ filters, setFilters, onReset, boards }: FilterPanelProps) {
-  const filterCategories = generateFilterOptions(boards);
-  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>(
-    Object.keys(filterCategories).reduce((acc, category) => ({
-      ...acc,
-      [category]: false
-    }), {})
-  );
-  const [filterSearch, setFilterSearch] = useState("");
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isAtBottom, setIsAtBottom] = useState(false);
+export function FilterPanel({ filterState, onFilterChange }: FilterPanelProps) {
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({
+    manufacturer: true,
+    connectivity: true,
+    interfaces: true,
+  });
 
-  const handleFilterClick = (category: string, id: string) => {
-    setFilters({
-      ...filters,
-      [category]: filters[category as keyof FilterState]?.includes(id)
-        ? filters[category as keyof FilterState]?.filter((item) => item !== id)
-        : [...(filters[category as keyof FilterState] || []), id],
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onFilterChange({
+      ...filterState,
+      searchQuery: e.target.value,
     });
   };
 
-  const toggleCategory = (category: string) => {
-    setExpandedCategories(prev => ({
+  const handleFilterChange = (category: string, value: string) => {
+    const currentValues = filterState[category as keyof FilterState] as string[];
+    const newValues = currentValues.includes(value)
+      ? currentValues.filter(v => v !== value)
+      : [...currentValues, value];
+
+    onFilterChange({
+      ...filterState,
+      [category]: newValues,
+    });
+  };
+
+  const toggleExpanded = (category: string) => {
+    setExpanded(prev => ({
       ...prev,
-      [category]: !prev[category]
+      [category]: !prev[category],
     }));
   };
 
-  const clearCategory = (category: string) => {
-    setFilters({
-      ...filters,
-      [category]: []
-    });
-  };
-
-  const getFilterCount = (category: string, optionId: string) => {
-    return boards.filter(board => {
-      if (category === 'cpu') {
-        return board?.cpu?.model === optionId;
-      }
-      if (category === 'usb') {
-        return board.interfaces?.usb?.type === optionId;
-      }
-      if (category === 'connectivity') {
-        return board?.connectivity && optionId in board.connectivity && board.connectivity[optionId as keyof typeof board.connectivity];
-      }
-      if (category === 'sensors') {
-        return board?.sensors && optionId in board.sensors && board.sensors[optionId as keyof typeof board.sensors];
-      }
-      if (category === 'power') {
-        if (optionId === 'battery') return board?.power?.battery?.supported;
-        if (optionId === 'battery_connector') return board?.power?.battery?.connector;
-        if (optionId === 'charging') return board?.power?.battery?.charging;
-        if (optionId === 'monitoring') return board?.power?.battery?.monitoring;
-        return board?.power && optionId in board.power && board.power[optionId as keyof typeof board.power];
-      }
-      if (category === 'display') {
-        return board?.display && optionId in board.display && board.display[optionId as keyof typeof board.display];
-      }
-      if (category === 'interfaces') {
-        return board?.interfaces && optionId in board.interfaces && board.interfaces[optionId as keyof typeof board.interfaces];
-      }
-      return false;
-    }).length;
-  };
-
-  const resetFilters = () => {
-    setFilters({
-      cpu: [],
-      usb: [],
-      connectivity: [],
-      sensors: [],
-      power: [],
-      display: [],
-      interfaces: [],
-    });
-    onReset?.();
-  };
-
   const getActiveFilters = () => {
-    return Object.entries(filters)
-      .flatMap(([category, selectedIds]: [string, string[]]) =>
-        selectedIds.map((id: string) => ({
-          category,
-          id,
-          label: filterCategories[category as keyof FilterConfig]?.options.find(
-            (option) => option.id === id
-          )?.label || id,
-        }))
-      )
-      .filter((filter) => filter.label);
+    const activeFilters: Array<{ category: string; value: string }> = [];
+    
+    Object.entries(filterState).forEach(([category, values]) => {
+      if (Array.isArray(values)) {
+        values.forEach(value => {
+          activeFilters.push({ category, value });
+        });
+      }
+    });
+
+    return activeFilters;
+  };
+
+  const removeFilter = (category: string, value: string) => {
+    const currentValues = filterState[category as keyof FilterState] as string[];
+    onFilterChange({
+      ...filterState,
+      [category]: currentValues.filter(v => v !== value),
+    });
+  };
+
+  const clearAllFilters = () => {
+    onFilterChange({
+      manufacturer: [],
+      connectivity: [],
+      interfaces: [],
+      priceRange: { min: 0, max: 100 },
+      searchQuery: "",
+    });
   };
 
   const activeFilters = getActiveFilters();
-  const filteredCategories = Object.entries(filterCategories).filter(([, { label, options }]) =>
-    label.toLowerCase().includes(filterSearch.toLowerCase()) ||
-    options.some(opt => opt.label.toLowerCase().includes(filterSearch.toLowerCase()))
-  );
-
-  const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
-    const target = event.currentTarget;
-    setIsScrolled(target.scrollTop > 0);
-    setIsAtBottom(
-      Math.abs(target.scrollHeight - target.clientHeight - target.scrollTop) < 1
-    );
-  };
 
   return (
-    <div className="w-full lg:w-72 shrink-0 lg:sticky lg:top-0 lg:h-screen lg:max-h-screen flex flex-col">
-      {/* Header */}
-      <div className="pb-4 space-y-4 sticky top-0 bg-background z-10">
-        <div className="flex items-center justify-between pt-4">
-          <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4" />
-            <h2 className="font-medium">Filters</h2>
-          </div>
+    <Card className="sticky top-4">
+      <CardHeader className="pb-4">
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-lg font-semibold">Filters</CardTitle>
           {activeFilters.length > 0 && (
             <Button
               variant="ghost"
               size="sm"
-              onClick={resetFilters}
-              className="h-8 px-2 text-sm hover:bg-destructive/10 hover:text-destructive"
+              onClick={clearAllFilters}
+              className="h-8 px-2 text-xs"
             >
               Clear all
             </Button>
           )}
         </div>
-
-        {/* Search Filters */}
         <div className="relative">
           <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Search filters..."
-            value={filterSearch}
-            onChange={(e) => setFilterSearch(e.target.value)}
+            placeholder="Search boards..."
+            value={filterState.searchQuery}
+            onChange={handleSearchChange}
             className="pl-8"
           />
         </div>
-
-        {/* Active Filters */}
         {activeFilters.length > 0 && (
-          <div className="mt-4">
-            <ScrollArea className="w-full" style={{ maxHeight: activeFilters.length > 6 ? '160px' : 'auto' }}>
-              <div className="flex flex-wrap gap-1.5 pr-4">
-                {activeFilters.map(({ category, id, label }) => (
-                  <Button
-                    key={`${category}-${id}`}
-                    variant="secondary"
-                    size="sm"
-                    className="h-7 pl-2 pr-1 text-sm group shrink-0"
-                    onClick={() => handleFilterClick(category, id)}
-                  >
-                    <span className="truncate">{label}</span>
-                    <X className="w-4 h-4 ml-1 shrink-0 group-hover:text-destructive" />
-                  </Button>
-                ))}
-              </div>
-            </ScrollArea>
+          <div className="flex flex-wrap gap-2 pt-2">
+            {activeFilters.map(({ category, value }) => (
+              <Badge
+                key={`${category}-${value}`}
+                variant="secondary"
+                className="flex items-center gap-1"
+              >
+                {value}
+                <button
+                  onClick={() => removeFilter(category, value)}
+                  className="ml-1 rounded-full hover:bg-muted"
+                >
+                  ×
+                </button>
+              </Badge>
+            ))}
           </div>
         )}
-        {/* Add shadow/fade when scrolled */}
-        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-background to-transparent" />
-      </div>
-
-      {/* Filter Categories */}
-      <ScrollArea 
-        className="flex-1 relative [&>div]:scroll-smooth" 
-        onScrollCapture={handleScroll}
-      >
-        {/* Top fade effect */}
-        <div className={cn(
-          "absolute top-0 left-0 right-4 bg-gradient-to-b from-background via-background/50 to-transparent pointer-events-none z-10 transition-all duration-200",
-          isScrolled ? "opacity-100 h-16" : "opacity-0 h-8"
-        )} />
-        
-        <div className="space-y-4 pr-4 pb-4">
-          {filteredCategories.map(([category, { label, options }]) => {
-            const selectedCount = filters[category as keyof FilterState]?.length || 0;
-            const totalCount = options.length;
-            
-            return (
-              <div key={category} className="space-y-1">
-                <Collapsible
-                  open={expandedCategories[category]}
-                  onOpenChange={() => toggleCategory(category)}
-                >
-                  <div className="flex items-center justify-between">
-                    <CollapsibleTrigger className="flex items-center gap-2 hover:opacity-80">
-                      {expandedCategories[category] ? (
-                        <ChevronDown className="h-4 w-4" />
-                      ) : (
-                        <ChevronRight className="h-4 w-4" />
-                      )}
-                      <h3 className="text-sm font-medium" id={`${category}-heading`}>
-                        {label}
-                      </h3>
-                      {selectedCount > 0 && (
-                        <Badge variant="secondary" className="ml-2">
-                          {selectedCount}/{totalCount}
-                        </Badge>
-                      )}
-                    </CollapsibleTrigger>
-                    
-                    <div className="flex items-center gap-1">
-                      {selectedCount > 0 && (
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <Button
-                                variant="ghost"
-                                size="sm"
-                                className="h-8 w-8 p-0"
-                                onClick={() => clearCategory(category)}
-                              >
-                                <Square className="h-4 w-4" />
-                              </Button>
-                            </TooltipTrigger>
-                            <TooltipContent>Clear Selection</TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      )}
-                    </div>
-                  </div>
-
-                  <CollapsibleContent>
-                    <div 
-                      className="flex flex-wrap gap-1.5 pl-6" 
-                      role="group" 
-                      aria-labelledby={`${category}-heading`}
+      </CardHeader>
+      <CardContent className="pb-6">
+        <Accordion type="multiple" className="w-full space-y-4">
+          {Object.entries(filterOptions).map(([category, options]) => (
+            <AccordionItem
+              key={category}
+              value={category}
+              className="border-none"
+            >
+              <AccordionTrigger
+                onClick={() => toggleExpanded(category)}
+                className={`hover:no-underline p-0 ${
+                  expanded[category] ? "mb-2" : ""
+                }`}
+              >
+                <span className="flex items-center text-sm font-medium">
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </span>
+                {expanded[category] ? (
+                  <ChevronDown className="h-4 w-4" />
+                ) : (
+                  <ChevronRight className="h-4 w-4" />
+                )}
+              </AccordionTrigger>
+              <AccordionContent className="space-y-2">
+                {options.map((option) => (
+                  <div
+                    key={option}
+                    className="flex items-center space-x-2"
+                  >
+                    <Checkbox
+                      id={`${category}-${option}`}
+                      checked={(filterState[category as keyof FilterState] as string[]).includes(option)}
+                      onCheckedChange={() => handleFilterChange(category, option)}
+                    />
+                    <label
+                      htmlFor={`${category}-${option}`}
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      {options.filter(option => 
-                        option.label.toLowerCase().includes(filterSearch.toLowerCase())
-                      ).map((option) => {
-                        const isSelected = filters[category as keyof FilterState]?.includes(option.id);
-                        const count = getFilterCount(category, option.id);
-                        
-                        return (
-                          <TooltipProvider key={option.id}>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <button
-                                  onClick={() => handleFilterClick(category, option.id)}
-                                  className={cn(
-                                    "inline-flex items-center h-7 px-2.5 rounded-full text-sm font-medium transition-all shrink-0",
-                                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary",
-                                    "disabled:opacity-50 disabled:cursor-not-allowed",
-                                    isSelected
-                                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                                  )}
-                                  role="checkbox"
-                                  aria-checked={isSelected}
-                                >
-                                  {isSelected && (
-                                    <Check className="w-4 h-4 mr-1.5 shrink-0" aria-hidden="true" />
-                                  )}
-                                  <span className="truncate">{option.label}</span>
-                                  {count > 0 && (
-                                    <Badge 
-                                      variant={isSelected ? "secondary" : "outline"} 
-                                      className="ml-1.5 px-1"
-                                    >
-                                      {count}
-                                    </Badge>
-                                  )}
-                                </button>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>{count} board{count !== 1 ? 's' : ''} available</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        );
-                      })}
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Bottom fade effect */}
-        <div className={cn(
-          "absolute bottom-0 left-0 right-4 bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none",
-          isAtBottom ? "h-8" : "h-16"
-        )} />
-      </ScrollArea>
-    </div>
+                      {option}
+                    </label>
+                  </div>
+                ))}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </CardContent>
+    </Card>
   );
 }
