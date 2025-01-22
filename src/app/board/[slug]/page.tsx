@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { createBoardSlug } from '@/utils/slugs';
 import { ClientPage } from '@/components/ClientPage';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 
 async function getAllBoards(): Promise<Board[]> {
   const boardsDir = path.join(process.cwd(), 'src', 'data', 'boards');
@@ -41,8 +41,7 @@ type Props = {
 };
 
 export async function generateMetadata(
-  props: Props,
-  parent: ResolvingMetadata
+  props: Props
 ): Promise<Metadata> {
   // Await the params object
   const { params } = await Promise.resolve(props);
