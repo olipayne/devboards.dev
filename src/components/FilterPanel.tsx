@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { FilterState } from '@/utils/filters';
-import { filterOptions } from '@/utils/filterOptions';
+import { FilterState, generateFilterOptions } from '@/utils/filters';
+import { Board } from '@/types/board';
 import { 
   Card, 
   CardHeader, 
@@ -10,8 +10,6 @@ import {
   CardContent 
 } from "@/components/ui/card";
 import { 
-  ChevronDown, 
-  ChevronRight, 
   Search,
 } from "lucide-react";
 import { 
@@ -26,16 +24,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 interface FilterPanelProps {
+  boards: Board[];
   filterState: FilterState;
   onFilterChange: (newState: FilterState) => void;
 }
 
-export function FilterPanel({ filterState, onFilterChange }: FilterPanelProps) {
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({
-    manufacturer: true,
-    connectivity: true,
-    interfaces: true,
-  });
+export function FilterPanel({ boards, filterState, onFilterChange }: FilterPanelProps) {
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const filterConfig = generateFilterOptions(boards);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onFilterChange({
@@ -69,7 +65,13 @@ export function FilterPanel({ filterState, onFilterChange }: FilterPanelProps) {
     Object.entries(filterState).forEach(([category, values]) => {
       if (Array.isArray(values)) {
         values.forEach(value => {
-          activeFilters.push({ category, value });
+          const option = filterConfig[category]?.options.find(opt => opt.id === value);
+          if (option) {
+            activeFilters.push({ 
+              category, 
+              value: option.label
+            });
+          }
         });
       }
     });
@@ -79,27 +81,49 @@ export function FilterPanel({ filterState, onFilterChange }: FilterPanelProps) {
 
   const removeFilter = (category: string, value: string) => {
     const currentValues = filterState[category as keyof FilterState] as string[];
-    onFilterChange({
-      ...filterState,
-      [category]: currentValues.filter(v => v !== value),
-    });
+    const option = filterConfig[category]?.options.find(opt => opt.label === value);
+    if (option) {
+      onFilterChange({
+        ...filterState,
+        [category]: currentValues.filter(v => v !== option.id),
+      });
+    }
   };
 
   const clearAllFilters = () => {
     onFilterChange({
-      manufacturer: [],
+      cpu: [],
+      usb: [],
       connectivity: [],
+      sensors: [],
+      power: [],
+      display: [],
       interfaces: [],
-      priceRange: { min: 0, max: 100 },
       searchQuery: "",
     });
   };
 
   const activeFilters = getActiveFilters();
+  
+  // Sort categories by priority and filter out empty ones
+  const sortedCategories = Object.entries(filterConfig)
+    .filter(([, category]) => category.options.length > 0)
+    .sort(([a], [b]) => {
+      const priority: Record<string, number> = {
+        cpu: 1,
+        usb: 2,
+        connectivity: 3,
+        interfaces: 4,
+        power: 5,
+        sensors: 6,
+        display: 7,
+      };
+      return (priority[a] || 99) - (priority[b] || 99);
+    });
 
   return (
-    <Card className="sticky top-4">
-      <CardHeader className="pb-4">
+    <Card className="sticky top-4 max-h-[calc(100vh-2rem)] flex flex-col">
+      <CardHeader className="pb-4 shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-lg font-semibold">Filters</CardTitle>
           {activeFilters.length > 0 && (
@@ -142,9 +166,9 @@ export function FilterPanel({ filterState, onFilterChange }: FilterPanelProps) {
           </div>
         )}
       </CardHeader>
-      <CardContent className="pb-6">
+      <CardContent className="pb-6 overflow-y-auto">
         <Accordion type="multiple" className="w-full space-y-4">
-          {Object.entries(filterOptions).map(([category, options]) => (
+          {sortedCategories.map(([category, { label, options }]) => (
             <AccordionItem
               key={category}
               value={category}
@@ -157,31 +181,33 @@ export function FilterPanel({ filterState, onFilterChange }: FilterPanelProps) {
                 }`}
               >
                 <span className="flex items-center text-sm font-medium">
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                  {label}
                 </span>
-                {expanded[category] ? (
-                  <ChevronDown className="h-4 w-4" />
-                ) : (
-                  <ChevronRight className="h-4 w-4" />
-                )}
               </AccordionTrigger>
               <AccordionContent className="space-y-2">
                 {options.map((option) => (
                   <div
-                    key={option}
-                    className="flex items-center space-x-2"
+                    key={option.id}
+                    className="flex items-center justify-between"
                   >
-                    <Checkbox
-                      id={`${category}-${option}`}
-                      checked={(filterState[category as keyof FilterState] as string[]).includes(option)}
-                      onCheckedChange={() => handleFilterChange(category, option)}
-                    />
-                    <label
-                      htmlFor={`${category}-${option}`}
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      {option}
-                    </label>
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id={`${category}-${option.id}`}
+                        checked={(filterState[category as keyof FilterState] as string[]).includes(option.id)}
+                        onCheckedChange={() => handleFilterChange(category, option.id)}
+                      />
+                      <label
+                        htmlFor={`${category}-${option.id}`}
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        {option.label}
+                      </label>
+                    </div>
+                    {option.count !== undefined && (
+                      <span className="text-xs text-muted-foreground">
+                        {option.count}
+                      </span>
+                    )}
                   </div>
                 ))}
               </AccordionContent>

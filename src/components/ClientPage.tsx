@@ -37,20 +37,21 @@ function BoardCard({ board }: { board: Board }) {
 interface ClientPageProps {
   children: React.ReactNode;
   showFilter?: boolean;
+  boards?: Board[];
+  filterState: FilterState;
+  onFilterChange: (newState: FilterState) => void;
 }
 
-const ClientPage = ({ children, showFilter = false }: ClientPageProps) => {
-  const [filterState, setFilterState] = React.useState<FilterState>({
-    manufacturer: [],
-    connectivity: [],
-    interfaces: [],
-    priceRange: { min: 0, max: 100 },
-    searchQuery: "",
-  });
-
+const ClientPage = ({ 
+  children, 
+  showFilter = false, 
+  boards = [],
+  filterState,
+  onFilterChange,
+}: ClientPageProps) => {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-6">
+    <div className="min-h-screen bg-background flex flex-col">
+      <div className="container mx-auto px-4 py-6 shrink-0">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 hover:opacity-80">
             <CircuitBoard className="h-6 w-6" />
@@ -62,19 +63,22 @@ const ClientPage = ({ children, showFilter = false }: ClientPageProps) => {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex gap-8">
-          {showFilter && (
-            <aside className="w-64 shrink-0">
-              <FilterPanel
-                filterState={filterState}
-                onFilterChange={setFilterState}
-              />
-            </aside>
-          )}
-          <main className={showFilter ? 'flex-1 max-w-[calc(100%-16rem)]' : 'flex-1 max-w-full'}>
-            {children}
-          </main>
+      <div className="flex-1 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 h-full">
+          <div className="flex gap-8 h-full">
+            {showFilter && (
+              <aside className="w-64 shrink-0">
+                <FilterPanel
+                  boards={boards}
+                  filterState={filterState}
+                  onFilterChange={onFilterChange}
+                />
+              </aside>
+            )}
+            <main className={showFilter ? 'flex-1 max-w-[calc(100%-16rem)] overflow-y-auto' : 'flex-1 max-w-full overflow-y-auto'}>
+              {children}
+            </main>
+          </div>
         </div>
       </div>
     </div>

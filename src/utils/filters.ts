@@ -8,6 +8,7 @@ export interface FilterState {
   power: string[];
   display: string[];
   interfaces: string[];
+  searchQuery?: string;
 }
 
 export interface FilterOption {
@@ -60,14 +61,50 @@ export function generateFilterOptions(boards: Board[]): FilterConfig {
     return freqDiff !== 0 ? freqDiff : a.localeCompare(b);
   });
 
-  // Count frequencies of power features
-  const powerFeatures = {
+  // Count frequencies of features
+  const connectivityCounts = {
+    wifi: boards.filter(board => board?.connectivity?.wifi).length,
+    bluetooth: boards.filter(board => board?.connectivity?.bluetooth).length,
+    lora: boards.filter(board => board?.connectivity?.lora).length,
+    ethernet: boards.filter(board => board?.connectivity?.ethernet).length,
+    zigbee: boards.filter(board => board?.connectivity?.zigbee).length,
+    thread: boards.filter(board => board?.connectivity?.thread).length,
+    matter: boards.filter(board => board?.connectivity?.matter).length,
+    can: boards.filter(board => board?.connectivity?.can).length,
+  };
+
+  const sensorCounts = {
+    temperature: boards.filter(board => board?.sensors?.temperature).length,
+    humidity: boards.filter(board => board?.sensors?.humidity).length,
+    pressure: boards.filter(board => board?.sensors?.pressure).length,
+    imu: boards.filter(board => board?.sensors?.imu).length,
+    microphone: boards.filter(board => board?.sensors?.microphone).length,
+    camera: boards.filter(board => board?.sensors?.camera).length,
+    hall: boards.filter(board => board?.sensors?.hall).length,
+  };
+
+  const interfaceCounts = {
+    i2c: boards.filter(board => board?.interfaces?.i2c).length,
+    spi: boards.filter(board => board?.interfaces?.spi).length,
+    uart: boards.filter(board => board?.interfaces?.uart).length,
+    jtag: boards.filter(board => board?.interfaces?.jtag).length,
+    qwiic: boards.filter(board => board?.interfaces?.qwiic).length,
+    grove: boards.filter(board => board?.interfaces?.grove).length,
+    stemma: boards.filter(board => board?.interfaces?.stemma).length,
+  };
+
+  const powerCounts = {
     battery: boards.filter(board => board?.power?.battery?.supported).length,
     battery_connector: boards.filter(board => board?.power?.battery?.connector).length,
     charging: boards.filter(board => board?.power?.battery?.charging).length,
     monitoring: boards.filter(board => board?.power?.battery?.monitoring).length,
     solar: boards.filter(board => board?.power?.solar).length,
     poe: boards.filter(board => board?.power?.poe).length,
+  };
+
+  const displayCounts = {
+    builtin: boards.filter(board => board?.display?.builtin).length,
+    touch: boards.filter(board => board?.display?.touch).length,
   };
 
   return {
@@ -90,63 +127,76 @@ export function generateFilterOptions(boards: Board[]): FilterConfig {
     connectivity: {
       label: 'Connectivity',
       options: [
-        { id: 'wifi', label: 'WiFi' },
-        { id: 'bluetooth', label: 'Bluetooth' },
-        { id: 'lora', label: 'LoRa' },
-        { id: 'ethernet', label: 'Ethernet' },
-        { id: 'zigbee', label: 'Zigbee' },
-        { id: 'thread', label: 'Thread' },
-        { id: 'matter', label: 'Matter' },
-        { id: 'can', label: 'CAN' },
-      ],
+        { id: 'wifi', label: 'WiFi', count: connectivityCounts.wifi },
+        { id: 'bluetooth', label: 'Bluetooth', count: connectivityCounts.bluetooth },
+        { id: 'lora', label: 'LoRa', count: connectivityCounts.lora },
+        { id: 'ethernet', label: 'Ethernet', count: connectivityCounts.ethernet },
+        { id: 'zigbee', label: 'Zigbee', count: connectivityCounts.zigbee },
+        { id: 'thread', label: 'Thread', count: connectivityCounts.thread },
+        { id: 'matter', label: 'Matter', count: connectivityCounts.matter },
+        { id: 'can', label: 'CAN', count: connectivityCounts.can },
+      ].filter(option => option.count > 0),
     },
     sensors: {
       label: 'Sensors',
       options: [
-        { id: 'temperature', label: 'Temperature' },
-        { id: 'humidity', label: 'Humidity' },
-        { id: 'pressure', label: 'Pressure' },
-        { id: 'imu', label: 'IMU' },
-        { id: 'microphone', label: 'Microphone' },
-        { id: 'camera', label: 'Camera' },
-        { id: 'hall', label: 'Hall Effect' },
-      ],
+        { id: 'temperature', label: 'Temperature', count: sensorCounts.temperature },
+        { id: 'humidity', label: 'Humidity', count: sensorCounts.humidity },
+        { id: 'pressure', label: 'Pressure', count: sensorCounts.pressure },
+        { id: 'imu', label: 'IMU', count: sensorCounts.imu },
+        { id: 'microphone', label: 'Microphone', count: sensorCounts.microphone },
+        { id: 'camera', label: 'Camera', count: sensorCounts.camera },
+        { id: 'hall', label: 'Hall Effect', count: sensorCounts.hall },
+      ].filter(option => option.count > 0),
     },
     power: {
       label: 'Power',
       options: [
-        { id: 'battery', label: 'Battery Support', count: powerFeatures.battery },
-        { id: 'battery_connector', label: 'Battery Connector', count: powerFeatures.battery_connector },
-        { id: 'charging', label: 'Battery Charging', count: powerFeatures.charging },
-        { id: 'monitoring', label: 'Battery Monitoring', count: powerFeatures.monitoring },
-        { id: 'solar', label: 'Solar', count: powerFeatures.solar },
-        { id: 'poe', label: 'PoE', count: powerFeatures.poe },
+        { id: 'battery', label: 'Battery Support', count: powerCounts.battery },
+        { id: 'battery_connector', label: 'Battery Connector', count: powerCounts.battery_connector },
+        { id: 'charging', label: 'Battery Charging', count: powerCounts.charging },
+        { id: 'monitoring', label: 'Battery Monitoring', count: powerCounts.monitoring },
+        { id: 'solar', label: 'Solar', count: powerCounts.solar },
+        { id: 'poe', label: 'PoE', count: powerCounts.poe },
       ].filter(option => option.count > 0),
     },
     display: {
       label: 'Display',
       options: [
-        { id: 'builtin', label: 'Built-in Display' },
-        { id: 'touch', label: 'Touch Screen' },
-      ],
+        { id: 'builtin', label: 'Built-in Display', count: displayCounts.builtin },
+        { id: 'touch', label: 'Touch Screen', count: displayCounts.touch },
+      ].filter(option => option.count > 0),
     },
     interfaces: {
       label: 'Interfaces',
       options: [
-        { id: 'i2c', label: 'I2C' },
-        { id: 'spi', label: 'SPI' },
-        { id: 'uart', label: 'UART' },
-        { id: 'jtag', label: 'JTAG' },
-        { id: 'qwiic', label: 'Qwiic' },
-        { id: 'grove', label: 'Grove' },
-        { id: 'stemma', label: 'STEMMA' },
-      ],
+        { id: 'i2c', label: 'I2C', count: interfaceCounts.i2c },
+        { id: 'spi', label: 'SPI', count: interfaceCounts.spi },
+        { id: 'uart', label: 'UART', count: interfaceCounts.uart },
+        { id: 'jtag', label: 'JTAG', count: interfaceCounts.jtag },
+        { id: 'qwiic', label: 'Qwiic', count: interfaceCounts.qwiic },
+        { id: 'grove', label: 'Grove', count: interfaceCounts.grove },
+        { id: 'stemma', label: 'STEMMA', count: interfaceCounts.stemma },
+      ].filter(option => option.count > 0),
     },
   };
 }
 
 export const filterBoards = (boards: Board[], filters: FilterState): Board[] => {
   return boards.filter((board) => {
+    // Handle search query
+    if (filters.searchQuery) {
+      const searchLower = filters.searchQuery.toLowerCase();
+      const searchMatches = 
+        board.name.toLowerCase().includes(searchLower) ||
+        board.manufacturer.toLowerCase().includes(searchLower) ||
+        board.cpu.model.toLowerCase().includes(searchLower);
+      
+      if (!searchMatches) {
+        return false;
+      }
+    }
+
     // Check CPU model if filter is set
     if (filters.cpu.length > 0 && !filters.cpu.includes(board?.cpu?.model || '')) {
       return false;
@@ -202,9 +252,10 @@ export const filterBoards = (boards: Board[], filters: FilterState): Board[] => 
 
     // Check interface filters
     if (filters.interfaces.length > 0) {
-      if (!filters.interfaces.every(feature => 
-        board?.interfaces && board.interfaces[feature as keyof typeof board.interfaces]
-      )) {
+      if (!filters.interfaces.every(feature => {
+        if (feature === 'usb') return true; // USB is handled separately
+        return board?.interfaces && board.interfaces[feature as keyof typeof board.interfaces];
+      })) {
         return false;
       }
     }
