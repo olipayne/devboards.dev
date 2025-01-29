@@ -5,25 +5,83 @@ import { ClientPage, BoardCard } from '@/components/ClientPage';
 import Link from 'next/link';
 import { createBoardSlug } from '@/utils/slugs';
 import { filterBoards, FilterState } from '@/utils/filters';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Board } from '@/types/board';
 
 interface HomePageProps {
   initialBoards: Board[];
 }
 
+// Helper functions for URL hash management
+function encodeFilterState(state: FilterState): string {
+  const cleanState = Object.fromEntries(
+    Object.entries(state).filter(([ , value]) => {
+      return Array.isArray(value) ? value.length > 0 : Boolean(value);
+    })
+  );
+  return Object.keys(cleanState).length ? `#${btoa(JSON.stringify(cleanState))}` : '';
+}
+
+function decodeFilterState(hash: string): FilterState | null {
+  if (!hash || hash === '#') return null;
+  try {
+    const decoded = JSON.parse(atob(hash.slice(1)));
+    return {
+      cpu: decoded.cpu || [],
+      usb: decoded.usb || [],
+      connectivity: decoded.connectivity || [],
+      sensors: decoded.sensors || [],
+      power: decoded.power || [],
+      display: decoded.display || [],
+      interfaces: decoded.interfaces || [],
+      searchQuery: decoded.searchQuery || "",
+    };
+  } catch (e) {
+    console.error('Failed to decode filter state from URL:', e);
+    return null;
+  }
+}
+
 export function HomePage({ initialBoards }: HomePageProps) {
-  const [filterState, setFilterState] = useState<FilterState>({
-    cpu: [],
-    usb: [],
-    connectivity: [],
-    sensors: [],
-    power: [],
-    display: [],
-    interfaces: [],
-    searchQuery: "",
+  const [filterState, setFilterState] = useState<FilterState>(() => {
+    // Initialize from URL hash if present
+    if (typeof window !== 'undefined') {
+      const hashState = decodeFilterState(window.location.hash);
+      if (hashState) return hashState;
+    }
+    return {
+      cpu: [],
+      usb: [],
+      connectivity: [],
+      sensors: [],
+      power: [],
+      display: [],
+      interfaces: [],
+      searchQuery: "",
+    };
   });
-  
+
+  // Update URL hash when filter state changes
+  useEffect(() => {
+    const newHash = encodeFilterState(filterState);
+    if (window.location.hash !== newHash) {
+      window.history.pushState(null, '', newHash || window.location.pathname);
+    }
+  }, [filterState]);
+
+  // Handle browser back/forward navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hashState = decodeFilterState(window.location.hash);
+      if (hashState) {
+        setFilterState(hashState);
+      }
+    };
+
+    window.addEventListener('popstate', handleHashChange);
+    return () => window.removeEventListener('popstate', handleHashChange);
+  }, []);
+
   const filteredBoards = filterBoards(initialBoards, filterState);
   
   // Create structured data for search engines
