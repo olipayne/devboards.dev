@@ -26,7 +26,7 @@ export function BoardCard({ board }: BoardCardProps) {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <CardHeader className="p-0">
-        <div className="aspect-[4/3] relative overflow-hidden bg-muted">
+        <div className="aspect-4/3 relative overflow-hidden bg-muted">
           {board.urls?.image ? (
             <Image
               src={board.urls.image}
