@@ -72,7 +72,7 @@
     "product": "https://www.adafruit.com/product/5401",
     "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2FlnojLFXjJFEIeOOtNF4gC?alt=media&token=54bcc183-2b25-42de-a9c0-a53b7e27da53",
     "purchase": "https://www.unexpectedmaker.com/shop.html#!/ProS3/p/577095369/category=0",
-    "github": "https://github.com/unexpectedmaker/esp32s3",
+    "github": "https://github.com/UnexpectedMaker/esp32s3/blob/main/3d%20models/ProS3/ProS3.STEP",
     "documentation": null
   },
   "openSource": true

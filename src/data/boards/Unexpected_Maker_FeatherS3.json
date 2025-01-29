@@ -72,7 +72,7 @@
     "product": "https://www.adafruit.com/product/5399",
     "image": "https://firebasestorage.googleapis.com/v0/b/microcontrollerdb.appspot.com/o/images%2Fboards%2F57fPk6357Wdi1jIr6ADnC?alt=media&token=16572ae2-4ed3-4a61-a9af-62b41320b8cb",
     "purchase": "https://www.unexpectedmaker.com/shop.html#!/FeatherS3/p/577111310/category=154222511",
-    "github": "https://github.com/UnexpectedMaker/esp32s3",
+    "github": "https://github.com/UnexpectedMaker/esp32s3/tree/main/3d%20models/FeatherS3",
     "documentation": null
   },
   "openSource": true
